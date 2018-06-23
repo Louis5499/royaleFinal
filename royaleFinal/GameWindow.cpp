@@ -18,6 +18,7 @@ GameWindow::game_init()
     
     icon = al_load_bitmap("./icon.png");
     background = al_load_bitmap("./StartBackground.jpg");
+    one = new Classmates("zhengyen");
     
     al_set_display_icon(display, icon);
     al_reserve_samples(3);
@@ -92,7 +93,7 @@ GameWindow::GameWindow()
      *    a. timer: control the animation of each object, stopped when game doesn't run.
      *    b. monster_pro: control the production of monster, stooped when there is no need to produce monster.
      */
-    timer = al_create_timer(1.0 / FPS);
+    timer = al_create_timer(3.0 / FPS);
     monster_pro = al_create_timer(1.0 * 80 / FPS);
     
     if(timer == NULL || monster_pro == NULL)
@@ -156,6 +157,7 @@ GameWindow::game_update()
 {
     unsigned int i, j;
     // Todo..
+    one->move();
     return GAME_CONTINUE;
 }
 
@@ -265,6 +267,6 @@ GameWindow::draw_running_map()
     
     al_clear_to_color(al_map_rgb(100, 100, 100));
     al_draw_bitmap(background, 0, 0, 0);
-    
+    one->draw();
     al_flip_display();
 }

@@ -7,6 +7,7 @@
 #include <list>
 #include <time.h>
 #include "global.h"
+#include "Classmates.h"
 
 #define GAME_INIT -1
 #define GAME_SETTING 0
@@ -88,6 +89,9 @@ private:
     ALLEGRO_SAMPLE_INSTANCE *clearSound = NULL;
     ALLEGRO_SAMPLE_INSTANCE *failSound = NULL;
     ALLEGRO_SAMPLE_INSTANCE *backgroundSound = NULL;
+    
+    std::vector<Classmates> cmSet;
+    Classmates *one;
     
     int nowLevel = 1;
     
