@@ -9,6 +9,11 @@
 #include "global.h"
 #include "Classmates.h"
 #include "button.h"
+#include "Tower.h"
+#include "TowerBigRed.h"
+#include "TowerBigBlue.h"
+#include "TowerSmallRed.h"
+#include "TowerSmallBlue.h"
 
 #define GAME_INIT -1
 #define GAME_START 0
@@ -79,10 +84,6 @@ private:
     ALLEGRO_BITMAP *start_button = NULL;
     ALLEGRO_BITMAP *start_scene = NULL;
     ALLEGRO_BITMAP *playing_background = NULL;
-    ALLEGRO_BITMAP *tower_small_blue = NULL;
-    ALLEGRO_BITMAP *tower_small_red = NULL;
-    ALLEGRO_BITMAP *tower_big_blue = NULL;
-    ALLEGRO_BITMAP *tower_big_red = NULL;
     
 
     ALLEGRO_DISPLAY* display = NULL;
@@ -107,6 +108,14 @@ private:
     
     std::vector<Classmates> cmSet;
     Classmates *one;
+    
+    Tower *towerSmallBlueTop;
+    Tower *towerSmallBlueBottom;
+    Tower *towerSmallRedTop;
+    Tower *towerSmallRedBottom;
+    
+    Tower *towerBigBlue;
+    Tower *towerBigRed;
     
     int nowLevel = 1;
     

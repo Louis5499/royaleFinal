@@ -16,7 +16,7 @@ button::button(const char *name, int x, int y, int w, int h, int f): x(x), y(y),
 bool
 button::isHovered(int mouseX, int mouseY)
 {
-    if((type == square && mouseX >= x - width/2 && mouseX <= x + width/2 && mouseY >= y - height/2 && mouseY <= y + height/2) || (type == round && ((x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY) <= width*width))) {
+    if((type == square && mouseX >= x - width/2 && mouseX <= x + width/2 && mouseY >= y - height/2 && mouseY <= y + height/2) || (type == roundType && ((x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY) <= width*width))) {
             hover();
         printf("* x: %d, y: %d, mousex: %d, mousey: %d, d: %d, r: %d\n", x, y, mouseX, mouseY, (x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY), width*width);
         return true;

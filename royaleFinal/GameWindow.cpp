@@ -22,13 +22,25 @@ GameWindow::game_init()
     start_scene = al_load_bitmap("./start_scene.jpeg");
     background = al_load_bitmap("./StartBackground.jpg");
     playing_background = al_load_bitmap("./gamePlayBackground.png");
-    tower_small_blue = al_load_bitmap("./tower_small_blue.png");
-    tower_small_red = al_load_bitmap("./tower_small_red.png");
-    tower_big_blue = al_load_bitmap("./tower_big_blue.png");
-    tower_big_red = al_load_bitmap("./tower_big_red.png");
+    
+    towerBigBlue = new TowerBigBlue(390, 348);
+    towerBigRed = new TowerBigRed(1145, 348);
+    
+    towerSmallBlueTop = new TowerSmallBlue(510, 170);
+    towerSmallBlueBottom = new TowerSmallBlue(510,573);
+    
+    towerSmallRedTop = new TowerSmallRed(1059, 170);
+    towerSmallRedBottom = new TowerSmallRed(1059, 573);
+    //    al_draw_bitmap(tower_big_blue, 390, 348, 0);
+    //    al_draw_bitmap(tower_small_blue, 510, 170, 0);
+    //    al_draw_bitmap(tower_small_blue, 510, 573, 0);
+    //
+    //    al_draw_bitmap(tower_big_red, 1145, 348, 0);
+    //    al_draw_bitmap(tower_small_red, 1059, 170, 0);
+    //    al_draw_bitmap(tower_small_red, 1059, 573, 0);
     
     one = new Classmates("zhengyen");
-    start = new button("start_button", window_width/2, window_height*5/6, 125, 125, round);
+    start = new button("start_button", window_width/2, window_height*5/6, 125, 125, roundType);
     
     al_set_display_icon(display, icon);
     al_reserve_samples(3);
@@ -353,13 +365,15 @@ GameWindow::draw_fight_scene()
 
 void GameWindow::draw_playing_scene() {
     al_draw_bitmap(playing_background, 0, 0, 0);
-    al_draw_bitmap(tower_big_blue, 390, 348, 0);
-    al_draw_bitmap(tower_small_blue, 510, 170, 0);
-    al_draw_bitmap(tower_small_blue, 510, 573, 0);
+    towerBigBlue->draw();
+    towerBigRed->draw();
     
-    al_draw_bitmap(tower_big_red, 1145, 348, 0);
-    al_draw_bitmap(tower_small_red, 1059, 170, 0);
-    al_draw_bitmap(tower_small_red, 1059, 573, 0);
+    towerSmallBlueTop->draw();
+    towerSmallBlueBottom->draw();
+    
+    towerSmallRedTop->draw();
+    towerSmallRedBottom->draw();
+
     al_flip_display();
 }
 

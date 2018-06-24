@@ -17,7 +17,7 @@
 class Tower : public Object
 {
 public:
-    Tower(int, int);
+    Tower(int, int, int, int);
     virtual ~Tower();
     
     // override virtual function "Object::Draw"
@@ -48,7 +48,7 @@ protected:
     
     int img_posX;
     int img_posY;
-    ALLEGRO_BITMAP *attack_img;
+    ALLEGRO_BITMAP *attack_img = al_load_bitmap("./meteor.png");
     std::vector<Attack*> attack_set;
     
     // information of tower
