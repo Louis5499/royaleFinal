@@ -212,6 +212,7 @@ GameWindow::start_process_event()
             case ALLEGRO_KEY_ENTER:
                 return GAME_FIGHT;
         }
+    }
     else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
         mouse_x = event.mouse.x;
         mouse_y = event.mouse.y;
