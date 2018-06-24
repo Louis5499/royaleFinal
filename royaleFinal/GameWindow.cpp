@@ -22,18 +22,30 @@ GameWindow::game_init()
     start_scene = al_load_bitmap("./start_scene.jpeg");
     background = al_load_bitmap("./StartBackground.jpg");
     playing_background = al_load_bitmap("./gamePlayBackground.png");
-    tower_small_blue = al_load_bitmap("./tower_small_blue.png");
-    tower_small_red = al_load_bitmap("./tower_small_red.png");
-    tower_big_blue = al_load_bitmap("./tower_big_blue.png");
-    tower_big_red = al_load_bitmap("./tower_big_red.png");
+
     floor = al_load_bitmap("./floor.jpg");
     money_bar = al_load_bitmap("./money_bar.png");
     
-    one = new Classmates("zhengyen");
-    start = new button("start_button", window_width/2, window_height*5/6, 125, 125, roundType);
+    towerBigBlue = new TowerBigBlue(390, 348);
+    towerBigRed = new TowerBigRed(1145, 348);
     
+    towerSmallBlueTop = new TowerSmallBlue(510, 170);
+    towerSmallBlueBottom = new TowerSmallBlue(510,573);
+    
+    towerSmallRedTop = new TowerSmallRed(1059, 170);
+    towerSmallRedBottom = new TowerSmallRed(1059, 573);
+    //    al_draw_bitmap(tower_big_blue, 390, 348, 0);
+    //    al_draw_bitmap(tower_small_blue, 510, 170, 0);
+    //    al_draw_bitmap(tower_small_blue, 510, 573, 0);
+    //
+    //    al_draw_bitmap(tower_big_red, 1145, 348, 0);
+    //    al_draw_bitmap(tower_small_red, 1059, 170, 0);
+    //    al_draw_bitmap(tower_small_red, 1059, 573, 0);
     al_set_display_icon(display, icon);
     al_reserve_samples(3);
+    
+    one = new Classmates("zhengyen");
+    start = new button("start_button", window_width/2, window_height*5/6, 125, 125, roundType);
     
 //    sample = al_load_sample("growl.wav");
 //    startSound = al_create_sample_instance(sample);
