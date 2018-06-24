@@ -83,6 +83,9 @@ private:
     ALLEGRO_BITMAP *tower_small_red = NULL;
     ALLEGRO_BITMAP *tower_big_blue = NULL;
     ALLEGRO_BITMAP *tower_big_red = NULL;
+    ALLEGRO_BITMAP *floor = NULL;
+    ALLEGRO_BITMAP *money_bar = NULL;
+    
     
 
     ALLEGRO_DISPLAY* display = NULL;

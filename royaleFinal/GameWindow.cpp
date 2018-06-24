@@ -26,6 +26,8 @@ GameWindow::game_init()
     tower_small_red = al_load_bitmap("./tower_small_red.png");
     tower_big_blue = al_load_bitmap("./tower_big_blue.png");
     tower_big_red = al_load_bitmap("./tower_big_red.png");
+    floor = al_load_bitmap("./floor.jpg");
+    money_bar = al_load_bitmap("./money_bar.png");
     
     one = new Classmates("zhengyen");
     start = new button("start_button", window_width/2, window_height*5/6, 125, 125, round);
@@ -329,7 +331,7 @@ GameWindow::draw_start_scene()
     if(t < window_width/3) {
         al_draw_bitmap(loading, window_width/3-50-3, window_height-220, 0);
         al_draw_filled_rounded_rectangle(window_width/3+t, window_height-133, window_width/3*2, window_height-112, 5, 5, WHITE);
-        t+=5;
+        t++;
     } else {
         start->draw();
     }
@@ -342,14 +344,17 @@ void
 GameWindow::draw_fight_scene()
 {
     unsigned int i, j;
-    printf("draw\n");
-    al_clear_to_color(al_map_rgb(100, 100, 100));
-    al_draw_bitmap(background, 0, 0, 0);
     
-    one->draw();
+    al_draw_bitmap(floor, 0, 0, 0);
+    al_draw_bitmap(money_bar, 50, 80, 0);
+//    al_clear_to_color(al_map_rgb(100, 100, 100));
+//    al_draw_bitmap(background, 0, 0, 0);
+//
+//    one->draw();
     
     al_flip_display();
 }
+
 
 void GameWindow::draw_playing_scene() {
     al_draw_bitmap(playing_background, 0, 0, 0);
