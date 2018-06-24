@@ -9,8 +9,9 @@
 //#include <allegro5/allegro_ttf.h>
 //#include <allegro5/allegro_primitives.h>
 #include "global.h"
+#include "Object.h"
 
-class Classmates
+class Classmates : public Object
 {
 public:
     Classmates(std::string);
@@ -20,6 +21,12 @@ public:
     void move();
     void draw();
     
+    // functions that return informations of monster
+    int getDir() { return dir; }
+    int getHealthPoint() { return HealthPoint; }
+    
+    bool Subtract_HP(int);
+    
 protected:
     ALLEGRO_BITMAP *img[4][3];
     std::string name;
@@ -27,6 +34,11 @@ protected:
     int dir = up;
     int pos[2];
     int whichImg;
+    int moveSpeed;
+    
+    int HealthPoint = 20;
+    int speed = 1;
+    char class_name[20];
 };
 
 

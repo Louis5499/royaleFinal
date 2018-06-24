@@ -6,6 +6,7 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_image.h>
+#include <vector>
 
 #define font_size 12
 #define grid_width 40
@@ -20,5 +21,8 @@ enum {up = 0, left, down, right};
 enum {EDWARD = 0, MOMO, ACC, ZHENGYEN, CGHG, JACKY};
 
 extern int dir_mov[4][2];
+extern int TowerWidth[];
+extern int TowerHeight[];
+
 
 #endif // GLOBAL_H_INCLUDED

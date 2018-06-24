@@ -40,6 +40,9 @@
 		9B6E50A020D949C100279350 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E509B20D949C100279350 /* Main.cpp */; };
 		9B6E50A220D94E0B00279350 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50A120D94E0B00279350 /* icon.png */; };
 		9B6E50A420D94E1200279350 /* StartBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50A320D94E1200279350 /* StartBackground.jpg */; };
+		9B6E50A720DED81F00279350 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50A520DED81F00279350 /* Attack.cpp */; };
+		9B6E50AE20DEDD1100279350 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50AC20DEDD1100279350 /* Circle.cpp */; };
+		9B6E50B120DEE04400279350 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50AF20DEE04400279350 /* Tower.cpp */; };
 		E816174220DDEE6700206BE7 /* Classmates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E816174020DDEE6700206BE7 /* Classmates.cpp */; };
 		E81617DF20DEA1FB00206BE7 /* acc_3_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E81617D320DEA1F700206BE7 /* acc_3_0.png */; };
 		E81617E020DEA1FB00206BE7 /* acc_2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E81617D420DEA1F700206BE7 /* acc_2_1.png */; };
@@ -179,6 +182,13 @@
 		9B6E509D20D949C100279350 /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
 		9B6E50A120D94E0B00279350 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = royaleFinal/icon.png; sourceTree = "<group>"; };
 		9B6E50A320D94E1200279350 /* StartBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = StartBackground.jpg; path = royaleFinal/StartBackground.jpg; sourceTree = "<group>"; };
+		9B6E50A520DED81F00279350 /* Attack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Attack.cpp; sourceTree = "<group>"; };
+		9B6E50A620DED81F00279350 /* Attack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
+		9B6E50A920DED93500279350 /* Object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		9B6E50AC20DEDD1100279350 /* Circle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		9B6E50AD20DEDD1100279350 /* Circle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		9B6E50AF20DEE04400279350 /* Tower.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
+		9B6E50B020DEE04400279350 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		E816173F20DD739D00206BE7 /* Classmates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Classmates.h; sourceTree = "<group>"; };
 		E816174020DDEE6700206BE7 /* Classmates.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Classmates.cpp; sourceTree = "<group>"; };
 		E81617D320DEA1F700206BE7 /* acc_3_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acc_3_0.png; path = royaleFinal/classmates/acc/acc_3_0.png; sourceTree = "<group>"; };
@@ -393,6 +403,13 @@
 				9B6E509920D949C100279350 /* GameWindow.cpp */,
 				E816173F20DD739D00206BE7 /* Classmates.h */,
 				E816174020DDEE6700206BE7 /* Classmates.cpp */,
+				9B6E50A520DED81F00279350 /* Attack.cpp */,
+				9B6E50A620DED81F00279350 /* Attack.h */,
+				9B6E50AF20DEE04400279350 /* Tower.cpp */,
+				9B6E50B020DEE04400279350 /* Tower.h */,
+				9B6E50A920DED93500279350 /* Object.h */,
+				9B6E50AC20DEDD1100279350 /* Circle.cpp */,
+				9B6E50AD20DEDD1100279350 /* Circle.h */,
 				9B6E509D20D949C100279350 /* global.h */,
 				9B6E509A20D949C100279350 /* global.cpp */,
 				9B6E509B20D949C100279350 /* Main.cpp */,
@@ -566,8 +583,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6E50A020D949C100279350 /* Main.cpp in Sources */,
+				9B6E50AE20DEDD1100279350 /* Circle.cpp in Sources */,
+				9B6E50B120DEE04400279350 /* Tower.cpp in Sources */,
 				9B6E509F20D949C100279350 /* global.cpp in Sources */,
 				9B6E509E20D949C100279350 /* GameWindow.cpp in Sources */,
+				9B6E50A720DED81F00279350 /* Attack.cpp in Sources */,
 				E816174220DDEE6700206BE7 /* Classmates.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
