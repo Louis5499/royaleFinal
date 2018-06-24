@@ -24,3 +24,12 @@ void Classmates::draw() {
     al_draw_bitmap(img[dir][num], pos[0], pos[1], 0);
     whichImg = (whichImg+1)%4;
 }
+
+
+bool Classmates::Subtract_HP(int harm_point)
+{
+    HealthPoint -= harm_point;
+    
+    return (HealthPoint <= 0);
+}
+

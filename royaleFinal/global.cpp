@@ -9,4 +9,8 @@ int cmAttack[] = { 5,  5,  5,  5,  5,  5};
 int cmHealth[] = {20, 20, 20, 20, 20, 20};
 int cmVelocity[] = {5, 5,  5,  5,  5,  5};
 
+int TowerWidth[] = {72, 66};
+int TowerHeight[] = {121, 108};
+
+
 
