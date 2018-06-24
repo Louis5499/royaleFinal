@@ -113,6 +113,10 @@
 		E816186020DEA23000206BE7 /* zhengyen_2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E816185420DEA22E00206BE7 /* zhengyen_2_1.png */; };
 		E816186120DEA23000206BE7 /* zhengyen_3_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E816185520DEA22F00206BE7 /* zhengyen_3_0.png */; };
 		E816186220DEA23000206BE7 /* zhengyen_3_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E816185620DEA22F00206BE7 /* zhengyen_3_2.png */; };
+		E816186820DEFE3600206BE7 /* start_scene.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E816186720DEFE3500206BE7 /* start_scene.jpeg */; };
+		E816186C20DF0E1A00206BE7 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E816186B20DF0E1900206BE7 /* loading_1.png */; };
+		E816186E20DF107B00206BE7 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E816186D20DF107A00206BE7 /* start_button.png */; };
+		E816187020DF154D00206BE7 /* The Brooklyn Smooth Bold Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -253,6 +257,10 @@
 		E816185420DEA22E00206BE7 /* zhengyen_2_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhengyen_2_1.png; path = royaleFinal/classmates/zhengyen/zhengyen_2_1.png; sourceTree = "<group>"; };
 		E816185520DEA22F00206BE7 /* zhengyen_3_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhengyen_3_0.png; path = royaleFinal/classmates/zhengyen/zhengyen_3_0.png; sourceTree = "<group>"; };
 		E816185620DEA22F00206BE7 /* zhengyen_3_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhengyen_3_2.png; path = royaleFinal/classmates/zhengyen/zhengyen_3_2.png; sourceTree = "<group>"; };
+		E816186720DEFE3500206BE7 /* start_scene.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = start_scene.jpeg; path = royaleFinal/start_scene.jpeg; sourceTree = "<group>"; };
+		E816186B20DF0E1900206BE7 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = royaleFinal/loading_1.png; sourceTree = "<group>"; };
+		E816186D20DF107A00206BE7 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = royaleFinal/start_button.png; sourceTree = "<group>"; };
+		E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "The Brooklyn Smooth Bold Demo.ttf"; path = "royaleFinal/The Brooklyn Smooth Bold Demo.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +290,10 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
+				E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */,
+				E816186D20DF107A00206BE7 /* start_button.png */,
+				E816186B20DF0E1900206BE7 /* loading_1.png */,
+				E816186720DEFE3500206BE7 /* start_scene.jpeg */,
 				E816185120DEA22D00206BE7 /* zhengyen_0_0.png */,
 				E816185220DEA22E00206BE7 /* zhengyen_0_1.png */,
 				E816184D20DEA22C00206BE7 /* zhengyen_0_2.png */,
@@ -480,6 +492,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6E505520D947C100279350 /* Assets.xcassets in Resources */,
+				E816187020DF154D00206BE7 /* The Brooklyn Smooth Bold Demo.ttf in Resources */,
+				E816186E20DF107B00206BE7 /* start_button.png in Resources */,
+				E816186C20DF0E1A00206BE7 /* loading_1.png in Resources */,
 				E816185720DEA23000206BE7 /* zhengyen_3_1.png in Resources */,
 				E816185820DEA23000206BE7 /* zhengyen_2_0.png in Resources */,
 				E816185920DEA23000206BE7 /* zhengyen_0_2.png in Resources */,
@@ -552,6 +567,7 @@
 				E81617E820DEA1FB00206BE7 /* acc_1_2.png in Resources */,
 				E81617E920DEA1FB00206BE7 /* acc_3_1.png in Resources */,
 				E81617EA20DEA1FB00206BE7 /* acc_0_0.png in Resources */,
+				E816186820DEFE3600206BE7 /* start_scene.jpeg in Resources */,
 				9B6E505820D947C100279350 /* MainMenu.xib in Resources */,
 				9B6E50A420D94E1200279350 /* StartBackground.jpg in Resources */,
 				9B6E50A220D94E0B00279350 /* icon.png in Resources */,
