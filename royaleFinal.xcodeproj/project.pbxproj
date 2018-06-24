@@ -272,7 +272,6 @@
 		E816186B20DF0E1900206BE7 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = royaleFinal/loading_1.png; sourceTree = "<group>"; };
 		E816186D20DF107A00206BE7 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = royaleFinal/start_button.png; sourceTree = "<group>"; };
 		E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "The Brooklyn Smooth Bold Demo.ttf"; path = "royaleFinal/The Brooklyn Smooth Bold Demo.ttf"; sourceTree = "<group>"; };
-		E816187120DFED8D00206BE7 /* start_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = start_button.jpg; path = royaleFinal/start_button.jpg; sourceTree = "<group>"; };
 		E816187520DFEDA300206BE7 /* button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = button.h; sourceTree = "<group>"; };
 		E816187620DFEDD200206BE7 /* button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = button.cpp; sourceTree = "<group>"; };
 		E816187920DFFB7C00206BE7 /* hovered_start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hovered_start_button.png; path = royaleFinal/hovered_start_button.png; sourceTree = "<group>"; };
@@ -308,7 +307,6 @@
 			children = (
 				E816187B20DFFCAD00206BE7 /* start_button.png */,
 				E816187920DFFB7C00206BE7 /* hovered_start_button.png */,
-				E816187120DFED8D00206BE7 /* start_button.jpg */,
 				9B6E50B220DFEE2400279350 /* gamePlayBackground.png */,
 				E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */,
 				E816186D20DF107A00206BE7 /* start_button.png */,
