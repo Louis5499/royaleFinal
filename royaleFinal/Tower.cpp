@@ -1,9 +1,11 @@
 #include "Tower.h"
 #include <iostream>
 
-Tower::Tower(int pos_x, int pos_y)
+Tower::Tower(int _img_posX,int _img_posY)
 {
-    this->circle = new Circle(pos_x, pos_y, 70);
+    this->circle = new Circle(_img_posX+35,_img_posY+35, 70);
+    img_posX = _img_posX;
+    img_posY = _img_posY;
 }
 
 Tower::~Tower()
@@ -22,8 +24,8 @@ Tower::~Tower()
 void
 Tower::draw()
 {
-    int draw_x = circle->x - (TowerWidth[this->type]/2);
-    int draw_y = circle->y - (TowerHeight[this->type] - (TowerWidth[this->type]/2));
+    int draw_x = img_posX;
+    int draw_y = img_posY;
     
     
     al_draw_bitmap(img, draw_x, draw_y, 0);
@@ -31,12 +33,6 @@ Tower::draw()
     
     for(unsigned int i=0; i<this->attack_set.size(); i++)
         this->attack_set[i]->draw();
-    
-    if(isClicked)
-    {
-        al_draw_filled_circle(circle->x, circle->y, circle->r, al_map_rgba(196, 79, 79, 200));
-        al_draw_filled_circle(circle->x, circle->y, 2, al_map_rgb(0, 0, 0));
-    }
 }
 
 bool

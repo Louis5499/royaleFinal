@@ -21,6 +21,12 @@ GameWindow::game_init()
     start_button = al_load_bitmap("./start_button.png");
     start_scene = al_load_bitmap("./start_scene.jpeg");
     background = al_load_bitmap("./StartBackground.jpg");
+    playing_background = al_load_bitmap("./gamePlayBackground.png");
+    tower_small_blue = al_load_bitmap("./tower_small_blue.png");
+    tower_small_red = al_load_bitmap("./tower_small_red.png");
+    tower_big_blue = al_load_bitmap("./tower_big_blue.png");
+    tower_big_red = al_load_bitmap("./tower_big_red.png");
+    
     one = new Classmates("zhengyen");
     
     al_set_display_icon(display, icon);
@@ -57,12 +63,12 @@ GameWindow::game_play()
             msg = start_process_event();
     
     while(msg == GAME_FIGHT)
-        msg = process_event();
+        if (!al_is_event_queue_empty(event_queue))
+            msg = fight_process_event();
     
-    
-//
-//    while(msg != GAME_EXIT)
-//        msg = game_run();
+    while(msg == GAME_PLAYING)
+        if (!al_is_event_queue_empty(event_queue))
+            msg = playing_process_event();
     
     show_err_msg(msg);
 }
@@ -128,7 +134,6 @@ GameWindow::GameWindow()
 void
 GameWindow::game_begin()
 {
-//    draw_running_map();
     
 //    al_play_sample_instance(startSound);
 //    while(al_get_sample_instance_playing(startSound));
@@ -136,18 +141,6 @@ GameWindow::game_begin()
     
     al_start_timer(timer);
     al_start_timer(monster_pro);
-}
-
-int
-GameWindow::game_run()
-{
-    int error = GAME_FIGHT;
-    
-    if (!al_is_event_queue_empty(event_queue)) {
-        
-        error = process_event();
-    }
-    return error;
 }
 
 int
@@ -210,12 +203,19 @@ GameWindow::start_process_event()
     }
     else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE || event.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
         return GAME_EXIT;
-    else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
+    else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
         if(event.mouse.button == 1) {
             if(mouse_hover(start_x, start_y, start_w, start_h))
                 return GAME_FIGHT;
         }
-    
+    }
+    else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
+        switch (event.keyboard.keycode) {
+            case ALLEGRO_KEY_ENTER:
+                return GAME_FIGHT;
+        }
+    }
+
     if(redraw) {
         draw_start_scene();
         redraw = false;
@@ -225,7 +225,7 @@ GameWindow::start_process_event()
 }
 
 int
-GameWindow::process_event()
+GameWindow::fight_process_event()
 {
     int i;
     int instruction = GAME_FIGHT;
@@ -248,12 +248,8 @@ GameWindow::process_event()
         switch(event.keyboard.keycode) {
                 
             case ALLEGRO_KEY_P:
-                /*
-                 * You can add some variable to control if game is paused.
-                 * e.g: pause
-                 * In addition to add variable, you also have to modify draw_running_map() and game_update()
-                 * Or, monsters and towers can still work without being paused
-                 */
+                // FAKE FOR TESTING
+                return GAME_PLAYING;
                 break;
             case ALLEGRO_KEY_M:
                 mute = !mute;
@@ -279,12 +275,44 @@ GameWindow::process_event()
         instruction = game_update();
         
         // Re-draw map
-        draw_running_map();
+        draw_fight_scene();
         redraw = false;
     }
     
     return instruction;
 }
+
+int GameWindow::playing_process_event() {
+    int i;
+    int instruction = GAME_PLAYING;
+    
+    al_wait_for_event(event_queue, &event);
+    redraw = false;
+    
+    if(event.type == ALLEGRO_EVENT_TIMER) {
+        if(event.timer.source == timer) {
+            redraw = true;
+            // TODO ..
+        }
+        else {
+        }
+    }
+    else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+        return GAME_EXIT;
+    }
+    
+    if(redraw) {
+        // update each object in game
+        instruction = game_update();
+        
+        // Re-draw map
+        draw_playing_scene();
+        redraw = false;
+    }
+    
+    return GAME_PLAYING;
+}
+
 
 void
 GameWindow::draw_start_scene()
@@ -307,7 +335,7 @@ GameWindow::draw_start_scene()
 }
 
 void
-GameWindow::draw_running_map()
+GameWindow::draw_fight_scene()
 {
     unsigned int i, j;
     printf("draw\n");
@@ -318,3 +346,16 @@ GameWindow::draw_running_map()
     
     al_flip_display();
 }
+
+void GameWindow::draw_playing_scene() {
+    al_draw_bitmap(playing_background, 0, 0, 0);
+    al_draw_bitmap(tower_big_blue, 390, 348, 0);
+    al_draw_bitmap(tower_small_blue, 510, 170, 0);
+    al_draw_bitmap(tower_small_blue, 510, 573, 0);
+    
+    al_draw_bitmap(tower_big_red, 1145, 348, 0);
+    al_draw_bitmap(tower_small_red, 1059, 170, 0);
+    al_draw_bitmap(tower_small_red, 1059, 573, 0);
+    al_flip_display();
+}
+

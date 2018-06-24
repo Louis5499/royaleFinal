@@ -51,14 +51,16 @@ public:
 
     // draw running game map
     void draw_start_scene();
-    void draw_running_map();
+    void draw_playing_scene();
+    void draw_fight_scene();
     
     // draw pause scene
     void draw_pause_scene();
     
     // process of updated event
     int start_process_event();
-    int process_event();
+    int fight_process_event();
+    int playing_process_event();
     
     // detect if mouse hovers over a rectangle
     bool mouse_hover(int, int, int, int);
@@ -75,6 +77,12 @@ private:
     ALLEGRO_BITMAP *loading = NULL;
     ALLEGRO_BITMAP *start_button = NULL;
     ALLEGRO_BITMAP *start_scene = NULL;
+    ALLEGRO_BITMAP *playing_background = NULL;
+    ALLEGRO_BITMAP *tower_small_blue = NULL;
+    ALLEGRO_BITMAP *tower_small_red = NULL;
+    ALLEGRO_BITMAP *tower_big_blue = NULL;
+    ALLEGRO_BITMAP *tower_big_red = NULL;
+    
 
     ALLEGRO_DISPLAY* display = NULL;
     ALLEGRO_FONT *font = NULL;

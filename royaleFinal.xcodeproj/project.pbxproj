@@ -44,6 +44,10 @@
 		9B6E50AE20DEDD1100279350 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50AC20DEDD1100279350 /* Circle.cpp */; };
 		9B6E50B120DEE04400279350 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50AF20DEE04400279350 /* Tower.cpp */; };
 		9B6E50B320DFEE2400279350 /* gamePlayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50B220DFEE2400279350 /* gamePlayBackground.png */; };
+		9B6E50B820E0027E00279350 /* tower_big_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50B420E0027D00279350 /* tower_big_red.png */; };
+		9B6E50B920E0027E00279350 /* tower_small_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50B520E0027D00279350 /* tower_small_blue.png */; };
+		9B6E50BA20E0027E00279350 /* tower_big_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50B620E0027D00279350 /* tower_big_blue.png */; };
+		9B6E50BB20E0027E00279350 /* tower_small_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50B720E0027E00279350 /* tower_small_red.png */; };
 		E816174220DDEE6700206BE7 /* Classmates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E816174020DDEE6700206BE7 /* Classmates.cpp */; };
 		E81617DF20DEA1FB00206BE7 /* acc_3_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E81617D320DEA1F700206BE7 /* acc_3_0.png */; };
 		E81617E020DEA1FB00206BE7 /* acc_2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E81617D420DEA1F700206BE7 /* acc_2_1.png */; };
@@ -195,6 +199,11 @@
 		9B6E50AF20DEE04400279350 /* Tower.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		9B6E50B020DEE04400279350 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		9B6E50B220DFEE2400279350 /* gamePlayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamePlayBackground.png; path = royaleFinal/gamePlayBackground.png; sourceTree = "<group>"; };
+		9B6E50B420E0027D00279350 /* tower_big_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tower_big_red.png; path = royaleFinal/tower_big_red.png; sourceTree = "<group>"; };
+		9B6E50B520E0027D00279350 /* tower_small_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tower_small_blue.png; path = royaleFinal/tower_small_blue.png; sourceTree = "<group>"; };
+		9B6E50B620E0027D00279350 /* tower_big_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tower_big_blue.png; path = royaleFinal/tower_big_blue.png; sourceTree = "<group>"; };
+		9B6E50B720E0027E00279350 /* tower_small_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tower_small_red.png; path = royaleFinal/tower_small_red.png; sourceTree = "<group>"; };
+		9B6E50BC20E00B0200279350 /* TowerSmallBlue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TowerSmallBlue.h; sourceTree = "<group>"; };
 		E816173F20DD739D00206BE7 /* Classmates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Classmates.h; sourceTree = "<group>"; };
 		E816174020DDEE6700206BE7 /* Classmates.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Classmates.cpp; sourceTree = "<group>"; };
 		E81617D320DEA1F700206BE7 /* acc_3_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acc_3_0.png; path = royaleFinal/classmates/acc/acc_3_0.png; sourceTree = "<group>"; };
@@ -302,6 +311,10 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
+				9B6E50B620E0027D00279350 /* tower_big_blue.png */,
+				9B6E50B420E0027D00279350 /* tower_big_red.png */,
+				9B6E50B520E0027D00279350 /* tower_small_blue.png */,
+				9B6E50B720E0027E00279350 /* tower_small_red.png */,
 				9B6E50B220DFEE2400279350 /* gamePlayBackground.png */,
 				E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */,
 				E816186D20DF107A00206BE7 /* start_button.png */,
@@ -422,6 +435,7 @@
 				9B6E50A620DED81F00279350 /* Attack.h */,
 				9B6E50AF20DEE04400279350 /* Tower.cpp */,
 				9B6E50B020DEE04400279350 /* Tower.h */,
+				9B6E50BC20E00B0200279350 /* TowerSmallBlue.h */,
 				9B6E50A920DED93500279350 /* Object.h */,
 				9B6E50AC20DEDD1100279350 /* Circle.cpp */,
 				9B6E50AD20DEDD1100279350 /* Circle.h */,
@@ -528,6 +542,10 @@
 				E816186020DEA23000206BE7 /* zhengyen_2_1.png in Resources */,
 				E816186120DEA23000206BE7 /* zhengyen_3_0.png in Resources */,
 				E816186220DEA23000206BE7 /* zhengyen_3_2.png in Resources */,
+				9B6E50B820E0027E00279350 /* tower_big_red.png in Resources */,
+				9B6E50B920E0027E00279350 /* tower_small_blue.png in Resources */,
+				9B6E50BA20E0027E00279350 /* tower_big_blue.png in Resources */,
+				9B6E50BB20E0027E00279350 /* tower_small_red.png in Resources */,
 				E816183F20DEA22200206BE7 /* momo_0_0.png in Resources */,
 				E816184020DEA22200206BE7 /* momo_3_1.png in Resources */,
 				E816184120DEA22200206BE7 /* momo_1_2.png in Resources */,
