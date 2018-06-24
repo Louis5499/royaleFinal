@@ -7,20 +7,22 @@
 class button
 {
 public:
-    button(ALLEGRO_BITMAP *img1, ALLEGRO_BITMAP *img2, int x, int y, int w, int h, int f)
-    : x(x), y(y), width(w), height(h), type(f) {};
+    button(const char *name, int x, int y, int w, int h, int f);
     virtual ~button(){};
     
-//    void change_dir(int d){dir = d;};
-//    void move();
-//    void draw();
+    bool isHovered(int, int);
+    void hover(){drawImg = hoveredImg;};
+    void notHover(){drawImg = img;};
+    void draw();
     
 protected:
-    ALLEGRO_BITMAP *img = NULL, *hoveredImg = NULL;
-    int x = 0, y = 0;
+    ALLEGRO_BITMAP *img = NULL, *hoveredImg = NULL, *drawImg = NULL;
+    
+    int x = 0, y = 0; //center
     int width = 0, height = 0;
     int type = 0;
+    bool hovered = false;
 };
 
 
-#endif /* classmates_h */
+#endif /* button_h */
