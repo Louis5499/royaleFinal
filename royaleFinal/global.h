@@ -21,7 +21,7 @@ enum {up = 0, left, down, right};
 enum {EDWARD = 0, MOMO, ACC, ZHENGYEN, CGHG, JACKY};
 enum TowerType{SMALLBLUE = 0, SMALLRED, BIGBLUE, BIGRED}; // Tower
 enum {leftup = 0, centre};
-enum {square = 0, round};
+enum {square = 0, roundType};
 
 extern int dir_mov[4][2];
 extern int TowerWidth[];

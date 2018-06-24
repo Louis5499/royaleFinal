@@ -9,6 +9,11 @@
 #include "global.h"
 #include "Classmates.h"
 #include "button.h"
+#include "Tower.h"
+#include "TowerBigRed.h"
+#include "TowerBigBlue.h"
+#include "TowerSmallRed.h"
+#include "TowerSmallBlue.h"
 
 #define GAME_INIT -1
 #define GAME_START 0
@@ -110,6 +115,14 @@ private:
     
     std::vector<Classmates> cmSet;
     Classmates *one;
+    
+    Tower *towerSmallBlueTop;
+    Tower *towerSmallBlueBottom;
+    Tower *towerSmallRedTop;
+    Tower *towerSmallRedBottom;
+    
+    Tower *towerBigBlue;
+    Tower *towerBigRed;
     
     int nowLevel = 1;
     

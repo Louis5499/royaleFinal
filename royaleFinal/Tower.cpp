@@ -1,9 +1,9 @@
 #include "Tower.h"
 #include <iostream>
 
-Tower::Tower(int _img_posX,int _img_posY)
+Tower::Tower(int _img_posX,int _img_posY,int _offsetX,int _offsetY)
 {
-    this->circle = new Circle(_img_posX+35,_img_posY+35, 70);
+    this->circle = new Circle(_img_posX+_offsetX,_img_posY+_offsetY, 70);
     img_posX = _img_posX;
     img_posY = _img_posY;
 }
