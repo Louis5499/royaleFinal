@@ -212,8 +212,16 @@ GameWindow::start_process_event()
             case ALLEGRO_KEY_ENTER:
                 return GAME_FIGHT;
         }
+    else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
+        mouse_x = event.mouse.x;
+        mouse_y = event.mouse.y;
+        std::cout << event.mouse.x << " " << event.mouse.y << " * " << mouse_x << " " << mouse_y <<std::endl;
     }
 
+    
+    if(start->isHovered(mouse_x, mouse_y)) start->hover();
+    else start->notHover();
+    
     if(redraw) {
         draw_start_scene();
         redraw = false;
