@@ -43,6 +43,7 @@
 		9B6E50A720DED81F00279350 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50A520DED81F00279350 /* Attack.cpp */; };
 		9B6E50AE20DEDD1100279350 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50AC20DEDD1100279350 /* Circle.cpp */; };
 		9B6E50B120DEE04400279350 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E50AF20DEE04400279350 /* Tower.cpp */; };
+		9B6E50B320DFEE2400279350 /* gamePlayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6E50B220DFEE2400279350 /* gamePlayBackground.png */; };
 		E816174220DDEE6700206BE7 /* Classmates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E816174020DDEE6700206BE7 /* Classmates.cpp */; };
 		E81617DF20DEA1FB00206BE7 /* acc_3_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E81617D320DEA1F700206BE7 /* acc_3_0.png */; };
 		E81617E020DEA1FB00206BE7 /* acc_2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E81617D420DEA1F700206BE7 /* acc_2_1.png */; };
@@ -193,6 +194,7 @@
 		9B6E50AD20DEDD1100279350 /* Circle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
 		9B6E50AF20DEE04400279350 /* Tower.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		9B6E50B020DEE04400279350 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
+		9B6E50B220DFEE2400279350 /* gamePlayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamePlayBackground.png; path = royaleFinal/gamePlayBackground.png; sourceTree = "<group>"; };
 		E816173F20DD739D00206BE7 /* Classmates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Classmates.h; sourceTree = "<group>"; };
 		E816174020DDEE6700206BE7 /* Classmates.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Classmates.cpp; sourceTree = "<group>"; };
 		E81617D320DEA1F700206BE7 /* acc_3_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acc_3_0.png; path = royaleFinal/classmates/acc/acc_3_0.png; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
+				9B6E50B220DFEE2400279350 /* gamePlayBackground.png */,
 				E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */,
 				E816186D20DF107A00206BE7 /* start_button.png */,
 				E816186B20DF0E1900206BE7 /* loading_1.png */,
@@ -509,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6E505520D947C100279350 /* Assets.xcassets in Resources */,
+				9B6E50B320DFEE2400279350 /* gamePlayBackground.png in Resources */,
 				E816187020DF154D00206BE7 /* The Brooklyn Smooth Bold Demo.ttf in Resources */,
 				E816186E20DF107B00206BE7 /* start_button.png in Resources */,
 				E816186C20DF0E1A00206BE7 /* loading_1.png in Resources */,
