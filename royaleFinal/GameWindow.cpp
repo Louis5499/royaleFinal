@@ -28,6 +28,7 @@ GameWindow::game_init()
     tower_big_red = al_load_bitmap("./tower_big_red.png");
     
     one = new Classmates("zhengyen");
+    start = new button("start_button", window_width/2, window_height*5/6, 125, 125, round);
     
     al_set_display_icon(display, icon);
     al_reserve_samples(3);
@@ -190,9 +191,6 @@ GameWindow::game_destroy()
 int
 GameWindow::start_process_event()
 {
-    mouse_x = event.mouse.x;
-    mouse_y = event.mouse.y;
-    
     al_wait_for_event(event_queue, &event);
     redraw = false;
     
@@ -205,7 +203,7 @@ GameWindow::start_process_event()
         return GAME_EXIT;
     else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
         if(event.mouse.button == 1) {
-            if(mouse_hover(start_x, start_y, start_w, start_h))
+            if(start->isHovered(mouse_x, mouse_y))
                 return GAME_FIGHT;
         }
     }
@@ -246,7 +244,6 @@ GameWindow::fight_process_event()
     }
     else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
         switch(event.keyboard.keycode) {
-                
             case ALLEGRO_KEY_P:
                 // FAKE FOR TESTING
                 return GAME_PLAYING;
@@ -318,16 +315,14 @@ void
 GameWindow::draw_start_scene()
 {
     char buffer[50];
-    strcpy(buffer, "S   T   A   R   T");
     
     al_draw_bitmap(start_scene, 0, 0, 0);
     if(t < window_width/3) {
-        al_draw_bitmap(loading, window_width/3-50-3, window_height-200, 0);
-        al_draw_filled_rounded_rectangle(window_width/3+t, window_height-113, window_width/3*2, window_height-92, 5, 5, WHITE);
-        t++;
+        al_draw_bitmap(loading, window_width/3-50-3, window_height-220, 0);
+        al_draw_filled_rounded_rectangle(window_width/3+t, window_height-133, window_width/3*2, window_height-112, 5, 5, WHITE);
+        t+=5;
     } else {
-        al_draw_bitmap(start_button, window_width/3-50-3, window_height-200, 0);
-        al_draw_text(font, WHITE, window_width/2, window_height-110, 1, buffer);
+        start->draw();
     }
     
     

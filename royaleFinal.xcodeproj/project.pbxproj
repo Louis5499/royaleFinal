@@ -123,7 +123,6 @@
 		E816186220DEA23000206BE7 /* zhengyen_3_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E816185620DEA22F00206BE7 /* zhengyen_3_2.png */; };
 		E816186820DEFE3600206BE7 /* start_scene.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E816186720DEFE3500206BE7 /* start_scene.jpeg */; };
 		E816186C20DF0E1A00206BE7 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E816186B20DF0E1900206BE7 /* loading_1.png */; };
-		E816186E20DF107B00206BE7 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E816186D20DF107A00206BE7 /* start_button.png */; };
 		E816187020DF154D00206BE7 /* The Brooklyn Smooth Bold Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */; };
 /* End PBXBuildFile section */
 
@@ -282,6 +281,11 @@
 		E816186B20DF0E1900206BE7 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = royaleFinal/loading_1.png; sourceTree = "<group>"; };
 		E816186D20DF107A00206BE7 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = royaleFinal/start_button.png; sourceTree = "<group>"; };
 		E816186F20DF154C00206BE7 /* The Brooklyn Smooth Bold Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "The Brooklyn Smooth Bold Demo.ttf"; path = "royaleFinal/The Brooklyn Smooth Bold Demo.ttf"; sourceTree = "<group>"; };
+		E816187120DFED8D00206BE7 /* start_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = start_button.jpg; path = royaleFinal/start_button.jpg; sourceTree = "<group>"; };
+		E816187520DFEDA300206BE7 /* button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = button.h; sourceTree = "<group>"; };
+		E816187620DFEDD200206BE7 /* button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = button.cpp; sourceTree = "<group>"; };
+		E816187920DFFB7C00206BE7 /* hovered_start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hovered_start_button.png; path = royaleFinal/hovered_start_button.png; sourceTree = "<group>"; };
+		E816187B20DFFCAD00206BE7 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = royaleFinal/start_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +433,8 @@
 				9B6E505920D947C100279350 /* Info.plist */,
 				9B6E509820D949C100279350 /* GameWindow.h */,
 				9B6E509920D949C100279350 /* GameWindow.cpp */,
+				E816187520DFEDA300206BE7 /* button.h */,
+				E816187620DFEDD200206BE7 /* button.cpp */,
 				E816173F20DD739D00206BE7 /* Classmates.h */,
 				E816174020DDEE6700206BE7 /* Classmates.cpp */,
 				9B6E50A520DED81F00279350 /* Attack.cpp */,
@@ -528,7 +534,6 @@
 				9B6E505520D947C100279350 /* Assets.xcassets in Resources */,
 				9B6E50B320DFEE2400279350 /* gamePlayBackground.png in Resources */,
 				E816187020DF154D00206BE7 /* The Brooklyn Smooth Bold Demo.ttf in Resources */,
-				E816186E20DF107B00206BE7 /* start_button.png in Resources */,
 				E816186C20DF0E1A00206BE7 /* loading_1.png in Resources */,
 				E816185720DEA23000206BE7 /* zhengyen_3_1.png in Resources */,
 				E816185820DEA23000206BE7 /* zhengyen_2_0.png in Resources */,

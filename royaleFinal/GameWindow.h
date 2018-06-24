@@ -8,6 +8,7 @@
 #include <time.h>
 #include "global.h"
 #include "Classmates.h"
+#include "button.h"
 
 #define GAME_INIT -1
 #define GAME_START 0
@@ -116,7 +117,8 @@ private:
     bool pause = false;
     
     int t = 0; //to control the loading bar;
-    int start_x = window_width/2, start_y = window_height*2/3, start_w = 100, start_h = 50;
+    button *start = NULL;
+    //int start_x = window_width/2, start_y = window_height*2/3, start_w = 100, start_h = 50;
 };
 
 
