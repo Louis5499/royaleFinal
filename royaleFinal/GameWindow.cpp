@@ -253,7 +253,6 @@ GameWindow::process_event()
     }
     else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
         switch(event.keyboard.keycode) {
-                
             case ALLEGRO_KEY_P:
                 break;
             case ALLEGRO_KEY_M:
