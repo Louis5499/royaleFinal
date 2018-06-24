@@ -18,7 +18,7 @@
 
 enum {up = 0, left, down, right};
 enum {EDWARD = 0, MOMO, ACC, ZHENGYEN, CGHG, JACKY};
-enum {leftup = 0, centre};
+enum {square = 0, round};
 
 extern int dir_mov[4][2];
 extern int cmRadius[6];
