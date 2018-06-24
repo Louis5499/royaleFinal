@@ -12,17 +12,21 @@
 #define grid_width 40
 #define grid_height 40
 
-#define window_width 800
-#define window_height 600
-#define field_width 600
-#define field_height 600
+#define window_width 1500
+#define window_height 900
+#define field_width 1500
+#define field_height 700
 
 enum {up = 0, left, down, right};
 enum {EDWARD = 0, MOMO, ACC, ZHENGYEN, CGHG, JACKY};
+enum {leftup = 0, centre};
 
 extern int dir_mov[4][2];
 extern int TowerWidth[];
 extern int TowerHeight[];
-
+extern int cmRadius[6];
+extern int cmAttack[6];
+extern int cmHealth[6];
+extern int cmVelocity[6];
 
 #endif // GLOBAL_H_INCLUDED

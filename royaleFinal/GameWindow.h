@@ -10,15 +10,17 @@
 #include "Classmates.h"
 
 #define GAME_INIT -1
-#define GAME_SETTING 0
-#define GAME_SELECT 1
-#define GAME_BEGIN 2
-#define GAME_CONTINUE 3
-#define GAME_FAIL 4
-#define GAME_TERMINATE 5
-#define GAME_NEXT_LEVEL 6
-#define GAME_EXIT 7
-#define GAME_LEAVE 8
+#define GAME_START 0
+#define GAME_FIGHT 1
+#define GAME_SHOP 2
+#define GAME_CARD 3
+#define GAME_SOCIAL 4
+#define GAME_ACTIVITY 5
+#define GAME_SETTING 6
+#define GAME_DATA 7
+#define GAME_PLAYING 8
+#define GAME_FAIL 9
+#define GAME_EXIT 10
 
 // clock rate
 const float FPS = 60;
@@ -40,7 +42,6 @@ public:
     void game_reset();
     void game_play();
     void game_begin();
-    void game_start_scene();
 
     int game_run();
     int game_update();
@@ -49,13 +50,16 @@ public:
     void game_destroy();
 
     // draw running game map
+    void draw_start_scene();
     void draw_running_map();
     
     // draw pause scene
     void draw_pause_scene();
     
     // process of updated event
+    int start_process_event();
     int process_event();
+    
     // detect if mouse hovers over a rectangle
     bool mouse_hover(int, int, int, int);
     // detect if a tower will be constructed on road
@@ -68,7 +72,9 @@ public:
 private:
     ALLEGRO_BITMAP *icon;
     ALLEGRO_BITMAP *background = NULL;
-    ALLEGRO_BITMAP *game_start_bg = NULL;
+    ALLEGRO_BITMAP *loading = NULL;
+    ALLEGRO_BITMAP *start_button = NULL;
+    ALLEGRO_BITMAP *start_scene = NULL;
 
     ALLEGRO_DISPLAY* display = NULL;
     ALLEGRO_FONT *font = NULL;
@@ -101,6 +107,8 @@ private:
     bool mute = false;
     bool pause = false;
     
+    int t = 0; //to control the loading bar;
+    int start_x = window_width/2, start_y = window_height*2/3, start_w = 100, start_h = 50;
 };
 
 

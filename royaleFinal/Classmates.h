@@ -1,13 +1,7 @@
 #ifndef classmates_h
 #define classmates_h
 
-#include <stdio.h>
 #include <string.h>
-//#include <allegro5/allegro.h>
-//#include <allegro5/allegro_image.h>
-//#include <allegro5/allegro_font.h>
-//#include <allegro5/allegro_ttf.h>
-//#include <allegro5/allegro_primitives.h>
 #include "global.h"
 #include "Object.h"
 

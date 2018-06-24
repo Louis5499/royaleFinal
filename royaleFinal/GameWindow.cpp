@@ -17,6 +17,9 @@ GameWindow::game_init()
     char buffer[50];
     
     icon = al_load_bitmap("./icon.png");
+    loading = al_load_bitmap("./loading_1.png");
+    start_button = al_load_bitmap("./start_button.png");
+    start_scene = al_load_bitmap("./start_scene.jpeg");
     background = al_load_bitmap("./StartBackground.jpg");
     one = new Classmates("zhengyen");
     
@@ -44,24 +47,22 @@ void
 GameWindow::game_play()
 {
     int msg;
-    
     srand(time(NULL));
-    
-    msg = -1;
-    /*
-     *  We start the game by calling game_begin to start timer and play music
-     * [TODO]:
-     *     You may add some function to create starting scene before calling game_begin
-     *     e.g: game_start_scene()
-     */
     game_begin();
     
-    /*
-     *  while game is running, the result of game_run will be returned to msg.
-     *  If msg is GAME_EXIT, then tower game will terminate.
-     */
-    while(msg != GAME_EXIT)
-        msg = game_run();
+    msg = GAME_START;
+    
+    while(msg == GAME_START)
+        if (!al_is_event_queue_empty(event_queue))
+            msg = start_process_event();
+    
+    while(msg == GAME_FIGHT)
+        msg = process_event();
+    
+    
+//
+//    while(msg != GAME_EXIT)
+//        msg = game_run();
     
     show_err_msg(msg);
 }
@@ -69,10 +70,7 @@ GameWindow::game_play()
 void
 GameWindow::show_err_msg(int msg)
 {
-    if(msg == GAME_TERMINATE)
-        fprintf(stderr, "Game Terminated...");
-    else
-        fprintf(stderr, "unexpected msg: %d", msg);
+    fprintf(stderr, "unexpected msg: %d", msg);
     
     game_destroy();
     exit(9);
@@ -93,7 +91,7 @@ GameWindow::GameWindow()
      *    a. timer: control the animation of each object, stopped when game doesn't run.
      *    b. monster_pro: control the production of monster, stooped when there is no need to produce monster.
      */
-    timer = al_create_timer(3.0 / FPS);
+    timer = al_create_timer(1.0 / FPS);
     monster_pro = al_create_timer(1.0 * 80 / FPS);
     
     if(timer == NULL || monster_pro == NULL)
@@ -103,16 +101,16 @@ GameWindow::GameWindow()
         show_err_msg(-1);
     
     al_init_primitives_addon();
-    al_init_font_addon(); // initialize the font addon
-    al_init_ttf_addon(); // initialize the ttf (True Type Font) addon
+    al_init_font_addon();  // initialize the font addon
+    al_init_ttf_addon();   // initialize the ttf (True Type Font) addon
     al_init_image_addon(); // initialize the image addon
-    al_init_acodec_addon(); // initialize acodec addon
+    al_init_acodec_addon();// initialize acodec addon
     
     al_install_keyboard(); // install keyboard event
     al_install_mouse();    // install mouse event
     al_install_audio();    // install audio event
     
-    font = al_load_ttf_font("Caviar_Dreams_Bold.ttf",12,0); // load small font
+    font = al_load_ttf_font("The Brooklyn Smooth Bold Demo.ttf",25,15); // load small font
     Medium_font = al_load_ttf_font("Caviar_Dreams_Bold.ttf",24,0); //load medium font
     Large_font = al_load_ttf_font("Caviar_Dreams_Bold.ttf",36,0); //load large font
     
@@ -130,7 +128,7 @@ GameWindow::GameWindow()
 void
 GameWindow::game_begin()
 {
-    draw_running_map();
+//    draw_running_map();
     
 //    al_play_sample_instance(startSound);
 //    while(al_get_sample_instance_playing(startSound));
@@ -143,7 +141,7 @@ GameWindow::game_begin()
 int
 GameWindow::game_run()
 {
-    int error = GAME_CONTINUE;
+    int error = GAME_FIGHT;
     
     if (!al_is_event_queue_empty(event_queue)) {
         
@@ -158,7 +156,7 @@ GameWindow::game_update()
     unsigned int i, j;
     // Todo..
     one->move();
-    return GAME_CONTINUE;
+    return GAME_FIGHT;
 }
 
 void
@@ -167,11 +165,9 @@ GameWindow::game_reset()
     mute = false;
     redraw = false;
     
-    // stop sample instance
-    al_stop_sample_instance(backgroundSound);
-    al_stop_sample_instance(startSound);
+    //al_stop_sample_instance(backgroundSound);
+    //al_stop_sample_instance(startSound);
     
-    // stop timer
     al_stop_timer(timer);
     al_stop_timer(monster_pro);
 }
@@ -199,10 +195,40 @@ GameWindow::game_destroy()
 }
 
 int
+GameWindow::start_process_event()
+{
+    mouse_x = event.mouse.x;
+    mouse_y = event.mouse.y;
+    
+    al_wait_for_event(event_queue, &event);
+    redraw = false;
+    
+    if(event.type == ALLEGRO_EVENT_TIMER) {
+        if(event.timer.source == timer) {
+            redraw = true;
+        }
+    }
+    else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE || event.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
+        return GAME_EXIT;
+    else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
+        if(event.mouse.button == 1) {
+            if(mouse_hover(start_x, start_y, start_w, start_h))
+                return GAME_FIGHT;
+        }
+    
+    if(redraw) {
+        draw_start_scene();
+        redraw = false;
+    }
+    
+    return GAME_START;
+}
+
+int
 GameWindow::process_event()
 {
     int i;
-    int instruction = GAME_CONTINUE;
+    int instruction = GAME_FIGHT;
     
     al_wait_for_event(event_queue, &event);
     redraw = false;
@@ -261,12 +287,34 @@ GameWindow::process_event()
 }
 
 void
+GameWindow::draw_start_scene()
+{
+    char buffer[50];
+    strcpy(buffer, "S   T   A   R   T");
+    
+    al_draw_bitmap(start_scene, 0, 0, 0);
+    if(t < window_width/3) {
+        al_draw_bitmap(loading, window_width/3-50-3, window_height-200, 0);
+        al_draw_filled_rounded_rectangle(window_width/3+t, window_height-113, window_width/3*2, window_height-92, 5, 5, WHITE);
+        t++;
+    } else {
+        al_draw_bitmap(start_button, window_width/3-50-3, window_height-200, 0);
+        al_draw_text(font, WHITE, window_width/2, window_height-110, 1, buffer);
+    }
+    
+    
+    al_flip_display();
+}
+
+void
 GameWindow::draw_running_map()
 {
     unsigned int i, j;
-    
+    printf("draw\n");
     al_clear_to_color(al_map_rgb(100, 100, 100));
     al_draw_bitmap(background, 0, 0, 0);
+    
     one->draw();
+    
     al_flip_display();
 }
