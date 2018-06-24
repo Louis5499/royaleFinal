@@ -128,6 +128,8 @@
 		E8795A0620E013ED00BF599A /* button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E816187620DFEDD200206BE7 /* button.cpp */; };
 		E8795A0920E0141E00BF599A /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A0720E0141E00BF599A /* start_button.png */; };
 		E8795A0A20E0141E00BF599A /* hovered_start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A0820E0141E00BF599A /* hovered_start_button.png */; };
+		E8795A1320E033A600BF599A /* floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8795A1120E033A500BF599A /* floor.jpg */; };
+		E8795A1420E033A600BF599A /* money_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A1220E033A600BF599A /* money_bar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -293,6 +295,8 @@
 		E816187620DFEDD200206BE7 /* button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = button.cpp; sourceTree = "<group>"; };
 		E8795A0720E0141E00BF599A /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = royaleFinal/start_button.png; sourceTree = "<group>"; };
 		E8795A0820E0141E00BF599A /* hovered_start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hovered_start_button.png; path = royaleFinal/hovered_start_button.png; sourceTree = "<group>"; };
+		E8795A1120E033A500BF599A /* floor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = floor.jpg; path = royaleFinal/floor.jpg; sourceTree = "<group>"; };
+		E8795A1220E033A600BF599A /* money_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = money_bar.png; path = royaleFinal/money_bar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +326,8 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
+				E8795A1120E033A500BF599A /* floor.jpg */,
+				E8795A1220E033A600BF599A /* money_bar.png */,
 				9B6E50BD20E0285800279350 /* meteor.png */,
 				E8795A0820E0141E00BF599A /* hovered_start_button.png */,
 				E8795A0720E0141E00BF599A /* start_button.png */,
@@ -545,6 +551,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6E505520D947C100279350 /* Assets.xcassets in Resources */,
+				E8795A1320E033A600BF599A /* floor.jpg in Resources */,
+				E8795A1420E033A600BF599A /* money_bar.png in Resources */,
 				9B6E50B320DFEE2400279350 /* gamePlayBackground.png in Resources */,
 				E816187020DF154D00206BE7 /* The Brooklyn Smooth Bold Demo.ttf in Resources */,
 				E816186C20DF0E1A00206BE7 /* loading_1.png in Resources */,
