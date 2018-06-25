@@ -228,7 +228,6 @@
 		9B6E50BF20E028CA00279350 /* TowerSmallRed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TowerSmallRed.h; sourceTree = "<group>"; };
 		9B6E50C020E0294400279350 /* TowerBigBlue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TowerBigBlue.h; sourceTree = "<group>"; };
 		9B6E50C120E0298700279350 /* TowerBigRed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TowerBigRed.h; sourceTree = "<group>"; };
-		9B6E50C620E0885E00279350 /* menu.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = menu.ogg; path = royaleFinal/menu.ogg; sourceTree = "<group>"; };
 		E816173F20DD739D00206BE7 /* Classmates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Classmates.h; sourceTree = "<group>"; };
 		E816174020DDEE6700206BE7 /* Classmates.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Classmates.cpp; sourceTree = "<group>"; };
 		E81617D320DEA1F700206BE7 /* acc_3_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acc_3_0.png; path = royaleFinal/classmates/acc/acc_3_0.png; sourceTree = "<group>"; };
@@ -358,7 +357,6 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
-				9B6E50C620E0885E00279350 /* menu.ogg */,
 				E8795A3320E07B4100BF599A /* cghg_card.png */,
 				E8795A2B20E07B2100BF599A /* acc_card.png */,
 				E8795A2D20E07B2100BF599A /* edward_card.png */,
