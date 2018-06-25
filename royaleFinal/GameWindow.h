@@ -137,6 +137,7 @@ private:
     int money = 100;
     int jewel = 20;
     int cup = 0;
+    bool treasureLock[3] = {false, false, false};
     
     float volume = 1.0;
     

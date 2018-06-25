@@ -443,6 +443,8 @@ GameWindow::draw_fight_scene(int msg)
     playing->draw();
     setting->draw();
     
+    for(i=0; i<2; i++) if(treasure[0] == false) al_draw_bitmap(treasure, 50+i*, 230, 0);
+    
     if(msg == GAME_SETTING) {
         al_draw_filled_rounded_rectangle(100, 80, window_width - 100, window_height - 80, 20, 20, al_map_rgb(150, 150, 150));
         al_draw_text(Medium_font, al_map_rgb(230, 230, 230), window_width/2, 110, 1, "SETTING");
