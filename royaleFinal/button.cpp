@@ -18,16 +18,14 @@ button::isHovered(int mouseX, int mouseY)
 {
     if((type == square && mouseX >= x - width/2 && mouseX <= x + width/2 && mouseY >= y - height/2 && mouseY <= y + height/2) || (type == roundType && ((x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY) <= width*width))) {
             hover();
-        printf("* x: %d, y: %d, mousex: %d, mousey: %d, d: %d, r: %d\n", x, y, mouseX, mouseY, (x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY), width*width);
         return true;
     }
-    printf("type: %d, x: %d, mousex: %d, dest: %d, r: %d\n", type, x, mouseX, (x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY), width*width);
-    notHover();
     return false;
 }
 
 void
 button::draw()
 {
-    al_draw_bitmap(drawImg, x - width, y - height, 0);
+    if(type == square) al_draw_bitmap(drawImg, x - width/2, y - height/2, 0);
+    else al_draw_bitmap(drawImg, x - width, y - height, 0);
 }

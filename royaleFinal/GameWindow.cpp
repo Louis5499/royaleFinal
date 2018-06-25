@@ -18,13 +18,14 @@ GameWindow::game_init()
     
     icon = al_load_bitmap("./icon.png");
     loading = al_load_bitmap("./loading_1.png");
-    start_button = al_load_bitmap("./start_button.png");
     start_scene = al_load_bitmap("./start_scene.jpeg");
     background = al_load_bitmap("./StartBackground.jpg");
     playing_background = al_load_bitmap("./gamePlayBackground.png");
 
     floor = al_load_bitmap("./floor.jpg");
     money_bar = al_load_bitmap("./money_bar.png");
+    jewel_bar = al_load_bitmap("./jewel_bar.png");
+    cup_bar = al_load_bitmap("./cup_bar.png");
     
     towerBigBlue = new TowerBigBlue(390, 348);
     towerBigRed = new TowerBigRed(1145, 348);
@@ -46,9 +47,16 @@ GameWindow::game_init()
     
     one = new Classmates("zhengyen");
     start = new button("start_button", window_width/2, window_height*5/6, 125, 125, roundType);
+    playing = new button("playing_button", window_width - 190, window_height - 120, 300, 160, square);
+    setting = new button("setting_button", window_width - 80, 80, 80, 80, square);
+    exit_button = new button("exit_button", window_width - 105, 82, 18, 18, roundType);
     
-//    sample = al_load_sample("growl.wav");
-//    startSound = al_create_sample_instance(sample);
+    volumer = new Slider(290, 290);
+    
+    sample = al_load_sample("menu.wav");
+    backgroundSound = al_create_sample_instance(sample);
+    al_set_sample_instance_playmode(backgroundSound, ALLEGRO_PLAYMODE_LOOP);
+    al_attach_sample_instance_to_mixer(backgroundSound, al_get_default_mixer());
 //    al_set_sample_instance_playmode(startSound, ALLEGRO_PLAYMODE_ONCE);
 //    al_attach_sample_instance_to_mixer(startSound, al_get_default_mixer());
     
@@ -77,13 +85,13 @@ GameWindow::game_play()
         if (!al_is_event_queue_empty(event_queue))
             msg = start_process_event();
     
-    while(msg == GAME_FIGHT)
-        if (!al_is_event_queue_empty(event_queue))
-            msg = fight_process_event();
-    
-    while(msg == GAME_PLAYING)
-        if (!al_is_event_queue_empty(event_queue))
-            msg = playing_process_event();
+    while(msg == GAME_FIGHT || msg == GAME_SETTING || msg == GAME_PLAYING) {
+        if (!al_is_event_queue_empty(event_queue)) {
+            if(msg == GAME_FIGHT) msg = fight_process_event();
+            else if(msg == GAME_PLAYING) msg = playing_process_event();
+            else msg = setting_process_event();
+        }
+    }
     
     show_err_msg(msg);
 }
@@ -107,11 +115,6 @@ GameWindow::GameWindow()
     display = al_create_display(window_width, window_height);
     event_queue = al_create_event_queue();
     
-    /*
-     * Create two timers to control different parts of tower game:
-     *    a. timer: control the animation of each object, stopped when game doesn't run.
-     *    b. monster_pro: control the production of monster, stooped when there is no need to produce monster.
-     */
     timer = al_create_timer(1.0 / FPS);
     monster_pro = al_create_timer(1.0 * 80 / FPS);
     
@@ -131,8 +134,8 @@ GameWindow::GameWindow()
     al_install_mouse();    // install mouse event
     al_install_audio();    // install audio event
     
-    font = al_load_ttf_font("The Brooklyn Smooth Bold Demo.ttf",25,15); // load small font
-    Medium_font = al_load_ttf_font("Caviar_Dreams_Bold.ttf",24,0); //load medium font
+    font = al_load_ttf_font("Monsterz.ttf",28, 0); // load small font
+    Medium_font = al_load_ttf_font("Monsterz.ttf",70, 0); //load medium font
     Large_font = al_load_ttf_font("Caviar_Dreams_Bold.ttf",36,0); //load large font
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
@@ -152,7 +155,7 @@ GameWindow::game_begin()
     
 //    al_play_sample_instance(startSound);
 //    while(al_get_sample_instance_playing(startSound));
-//    al_play_sample_instance(backgroundSound);
+    al_play_sample_instance(backgroundSound);
     
     al_start_timer(timer);
     al_start_timer(monster_pro);
@@ -173,7 +176,7 @@ GameWindow::game_reset()
     mute = false;
     redraw = false;
     
-    //al_stop_sample_instance(backgroundSound);
+    al_stop_sample_instance(backgroundSound);
     //al_stop_sample_instance(startSound);
     
     al_stop_timer(timer);
@@ -230,10 +233,8 @@ GameWindow::start_process_event()
     else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
         mouse_x = event.mouse.x;
         mouse_y = event.mouse.y;
-        std::cout << event.mouse.x << " " << event.mouse.y << " * " << mouse_x << " " << mouse_y <<std::endl;
     }
 
-    
     if(start->isHovered(mouse_x, mouse_y)) start->hover();
     else start->notHover();
     
@@ -248,18 +249,12 @@ GameWindow::start_process_event()
 int
 GameWindow::fight_process_event()
 {
-    int i;
-    int instruction = GAME_FIGHT;
-    
     al_wait_for_event(event_queue, &event);
     redraw = false;
     
     if(event.type == ALLEGRO_EVENT_TIMER) {
         if(event.timer.source == timer) {
             redraw = true;
-            // TODO ..
-        }
-        else {
         }
     }
     else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
@@ -268,7 +263,6 @@ GameWindow::fight_process_event()
     else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
         switch(event.keyboard.keycode) {
             case ALLEGRO_KEY_P:
-                // FAKE FOR TESTING
                 return GAME_PLAYING;
                 break;
             case ALLEGRO_KEY_M:
@@ -282,7 +276,10 @@ GameWindow::fight_process_event()
     }
     else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
         if(event.mouse.button == 1) {
-            // TODO ..
+            if(playing->isHovered(mouse_x, mouse_y))
+                return GAME_PLAYING;
+            if(setting->isHovered(mouse_x, mouse_y))
+                return GAME_SETTING;
         }
     }
     else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
@@ -290,16 +287,78 @@ GameWindow::fight_process_event()
         mouse_y = event.mouse.y;
     }
     
+    if(playing->isHovered(mouse_x, mouse_y)) playing->hover();
+    else playing->notHover();
+    if(setting->isHovered(mouse_x, mouse_y)) setting->hover();
+    else setting->notHover();
+    
     if(redraw) {
-        // update each object in game
-        instruction = game_update();
-        
-        // Re-draw map
-        draw_fight_scene();
+        draw_fight_scene(GAME_FIGHT);
         redraw = false;
     }
     
-    return instruction;
+    return GAME_FIGHT;
+}
+
+int
+GameWindow::setting_process_event()
+{
+    int i;
+    int instruction = GAME_FIGHT;
+    
+    al_wait_for_event(event_queue, &event);
+    redraw = false;
+    
+    if(event.type == ALLEGRO_EVENT_TIMER) {
+        if(event.timer.source == timer) {
+            redraw = true;
+        }
+    }
+    else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+        return GAME_EXIT;
+    }
+    else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
+        switch(event.keyboard.keycode) {
+            case ALLEGRO_KEY_P:
+                return GAME_PLAYING;
+                break;
+            case ALLEGRO_KEY_M:
+                mute = !mute;
+                if(mute)
+                    al_stop_sample_instance(backgroundSound);
+                else
+                    al_play_sample_instance(backgroundSound);
+                break;
+        }
+    }
+    else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+        if(event.mouse.button == 1) {
+            if(volumer->isClicked(event.mouse.x, event.mouse.y)) {
+                volume = volumer->Drag(event.mouse.x, event.mouse.y);
+                al_set_sample_instance_gain(backgroundSound, volume);
+                volumer->toggleDrag();
+        }
+            if(setting->isHovered(mouse_x, mouse_y))
+                return GAME_FIGHT;
+        }
+    }
+    else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
+        mouse_x = event.mouse.x;
+        mouse_y = event.mouse.y;
+    }
+    
+    if(volumer->isDragged()) {
+        volume = volumer->Drag(mouse_x, mouse_y);
+        al_set_sample_instance_gain(backgroundSound, volume);
+        if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) volumer->toggleDrag();
+    }
+    
+    if(redraw) {
+        draw_fight_scene(GAME_SETTING);
+        redraw = false;
+    }
+    
+    return GAME_SETTING;
 }
 
 int GameWindow::playing_process_event() {
@@ -353,12 +412,46 @@ GameWindow::draw_start_scene()
 }
 
 void
-GameWindow::draw_fight_scene()
+GameWindow::draw_fight_scene(int msg)
 {
-    unsigned int i, j;
+    char buffer[50], j_buffer[50], c_buffer[50];
+    int i, j, count;
+    
+    for(i=money, count = 0; i>0; i/=10, count++);
+    for(i=count-1, j=money; i>=0; i--, j/=10) buffer[i] = j%10+'0';
+    buffer[count] = '\0';
+    if(count==0) { buffer[0] = '0'; buffer[1] = '\0';}
+    
+    for(i=jewel, count = 0; i>0; i/=10, count++);
+    for(i=count-1, j=jewel; i>=0; i--, j/=10) j_buffer[i] = j%10+'0';
+    j_buffer[count] = '\0';
+    if(count==0) { j_buffer[0] = '0'; j_buffer[1] = '\0';}
+    
+    for(i=cup, count = 0; i>0; i/=10, count++);
+    for(i=count-1, j=cup; i>=0; i--, j/=10) c_buffer[i] = j%10+'0';
+    c_buffer[count] = '\0';
+    if(count==0) { c_buffer[0] = '0'; c_buffer[1] = '\0';}
     
     al_draw_bitmap(floor, 0, 0, 0);
-    al_draw_bitmap(money_bar, 50, 80, 0);
+    al_draw_bitmap(money_bar, 50, 70, 0);
+    al_draw_text(font, WHITE, 180, 90, 1, buffer);
+    al_draw_bitmap(jewel_bar, 50, 150, 0);
+    al_draw_text(font, WHITE, 180, 170, 1, j_buffer);
+    al_draw_bitmap(cup_bar, 50, 230, 0);
+    al_draw_text(font, ORANGE_LIGHT, 180, 250, 1, c_buffer);
+    
+    playing->draw();
+    setting->draw();
+    
+    if(msg == GAME_SETTING) {
+        al_draw_filled_rounded_rectangle(100, 80, window_width - 100, window_height - 80, 20, 20, al_map_rgb(150, 150, 150));
+        al_draw_text(Medium_font, al_map_rgb(230, 230, 230), window_width/2, 110, 1, "SETTING");
+        al_draw_filled_rounded_rectangle(110, 200, window_width - 110, window_height - 90, 40, 40, al_map_rgb(230, 230, 230));
+        exit_button->draw();
+        al_draw_text(font, al_map_rgb(41, 31, 40), 140, 270, 0, "VOLUME");
+        volumer->draw();
+    }
+    
 //    al_clear_to_color(al_map_rgb(100, 100, 100));
 //    al_draw_bitmap(background, 0, 0, 0);
 //
