@@ -5,7 +5,7 @@ class TowerBigRed : public Tower
 {
 public:
     TowerBigRed(int mouse_x, int mouse_y)
-    : Tower(mouse_x, mouse_y,TowerWidth[BIGRED]/2,TowerHeight[BIGRED]/2)
+    : Tower(mouse_x, mouse_y,TowerWidth[BIGRED]/2,TowerHeight[BIGRED]/2,1)
     {
         type = BIGRED;
         

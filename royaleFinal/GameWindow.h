@@ -115,8 +115,11 @@ private:
     ALLEGRO_SAMPLE_INSTANCE *failSound = NULL;
     ALLEGRO_SAMPLE_INSTANCE *backgroundSound = NULL;
     
-    std::vector<Classmates> cmSet;
+    std::vector<Classmates*> cmSet;
+    std::vector<Tower*> towerSet;
+    
     Classmates *one;
+    Classmates *mate;
     
     Tower *towerSmallBlueTop;
     Tower *towerSmallBlueBottom;
