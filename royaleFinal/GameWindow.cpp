@@ -55,7 +55,7 @@ GameWindow::game_init()
     playing = new button("playing_button", window_width - 190, window_height - 120, 300, 160, square);
     setting = new button("setting_button", window_width - 80, 80, 80, 80, square);
     exit_button = new button("exit_button", window_width - 105, 82, 18, 18, roundType);
-    for(i=0; i<6; i++) chr[i] = new button(cmName[i], 150, 160, 175, 200, square);
+    for(i=0; i<6; i++) chr[i] = new button(cmName[i], 150, 160 + 200*i, 175, 200, square);
     
     volumer = new Slider(290, 290);
     

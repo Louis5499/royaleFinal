@@ -18,6 +18,7 @@ public:
 protected:
     ALLEGRO_BITMAP *img = NULL, *hoveredImg = NULL, *drawImg = NULL;
     
+    char n[50];
     int x = 0, y = 0; //center
     int width = 0, height = 0;
     int type = 0;

@@ -23,7 +23,7 @@ enum TowerType{SMALLBLUE = 0, SMALLRED, BIGBLUE, BIGRED}; // Tower
 enum {leftup = 0, centre};
 enum {square = 0, roundType};
 
-extern char cmName[6][50];
+extern const char cmName[6][50];
 
 extern int dir_mov[4][2];
 extern int TowerWidth[];
@@ -34,6 +34,7 @@ extern int cmRadius[6];
 extern int cmAttack[6];
 extern int cmHealth[6];
 extern int cmVelocity[6];
+extern int cmMoney[6];
 
 extern int cmWidth[6];
 extern int cmHeight[6];

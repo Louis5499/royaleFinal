@@ -138,6 +138,7 @@ private:
     bool mute = false;
     bool pause = false;
     
+    int mon = 500;
     int money = 100;
     int jewel = 20;
     int cup = 0;
