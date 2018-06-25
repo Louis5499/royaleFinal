@@ -34,17 +34,18 @@ GameWindow::game_init()
     
     towerSmallRedTop = new TowerSmallRed(1059, 170);
     towerSmallRedBottom = new TowerSmallRed(1059, 573);
-    //    al_draw_bitmap(tower_big_blue, 390, 348, 0);
-    //    al_draw_bitmap(tower_small_blue, 510, 170, 0);
-    //    al_draw_bitmap(tower_small_blue, 510, 573, 0);
-    //
-    //    al_draw_bitmap(tower_big_red, 1145, 348, 0);
-    //    al_draw_bitmap(tower_small_red, 1059, 170, 0);
-    //    al_draw_bitmap(tower_small_red, 1059, 573, 0);
+
+    towerSet.push_back(towerBigBlue);
+    towerSet.push_back(towerBigRed);
+    towerSet.push_back(towerSmallRedTop);
+    towerSet.push_back(towerSmallRedBottom);
+    towerSet.push_back(towerSmallBlueTop);
+    towerSet.push_back(towerSmallBlueBottom);
+    
     al_set_display_icon(display, icon);
     al_reserve_samples(3);
     
-    one = new Classmates("zhengyen");
+    one = new Classmates("zhengyen",100,100,1);
     start = new button("start_button", window_width/2, window_height*5/6, 125, 125, roundType);
     
 //    sample = al_load_sample("growl.wav");
@@ -162,9 +163,73 @@ int
 GameWindow::game_update()
 {
     unsigned int i, j;
-    // Todo..
-    one->move();
-    return GAME_FIGHT;
+    
+    std::list<Tower*>::iterator it;
+    
+    /*TODO:*/
+    /*Allow towers to detect if monster enters its range*/
+    /*Hint: Tower::DetectAttack*/
+    for(auto tower : towerSet) {
+        for(auto mate : cmSet) {
+            tower->DetectAttack(mate); // 會回傳 bool ，不確定用途
+            mate->DetectAttackTower(tower);
+        }
+    }
+    
+    for(auto mateOuter: cmSet) {
+        for(auto mateInner: cmSet) {
+            if(mateOuter == mateInner) continue;
+            mateOuter->DetectAttack(mateInner);
+        }
+    }
+    
+    // update every monster
+    // check if it is destroyed or reaches end point
+    for(i=0; i < cmSet.size(); i++)
+    {
+        for(auto tower : towerSet) {
+            tower->TriggerAttack(cmSet[i]);
+            cmSet[i]->TriggerAttackTower(tower);
+        }
+    }
+    
+    for(auto mateOuter: cmSet) {
+        for(auto mateInner: cmSet) {
+            if(mateOuter == mateInner) continue;
+            mateOuter->TriggerAttack(mateInner);
+        }
+    }
+    
+    /*TODO:*/
+    /*1. Update the attack set of each tower*/
+    /*Hint: Tower::UpdateAttack*/
+    
+    for(i=0; i < towerSet.size(); i++) {
+        Tower *tower = towerSet[i];
+        if(tower->getHealthPoint() <= 0) {
+            towerSet.erase(towerSet.begin() + i);
+            i--;
+            delete tower;
+        }
+        else tower->UpdateAttack();
+    }
+    
+    for(i=0; i < cmSet.size(); i++) {
+        Classmates *m = cmSet[i];
+        if(m->attack_set.empty()) printf("Empty\n");
+        if(mate->getHealthPoint() <= 0) {
+            cmSet.erase(cmSet.begin() + i);
+            i--;
+            delete m;
+        }
+        else {
+            m->move();
+            m->UpdateAttack();
+        }
+    }
+    
+    
+    return GAME_PLAYING;
 }
 
 void
@@ -230,7 +295,7 @@ GameWindow::start_process_event()
     else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
         mouse_x = event.mouse.x;
         mouse_y = event.mouse.y;
-        std::cout << event.mouse.x << " " << event.mouse.y << " * " << mouse_x << " " << mouse_y <<std::endl;
+//        std::cout << event.mouse.x << " " << event.mouse.y << " * " << mouse_x << " " << mouse_y <<std::endl;
     }
 
     
@@ -292,7 +357,7 @@ GameWindow::fight_process_event()
     
     if(redraw) {
         // update each object in game
-        instruction = game_update();
+//        instruction = game_update();
         
         // Re-draw map
         draw_fight_scene();
@@ -314,11 +379,21 @@ int GameWindow::playing_process_event() {
             redraw = true;
             // TODO ..
         }
-        else {
-        }
     }
     else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
         return GAME_EXIT;
+    }
+    else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
+        switch (event.keyboard.keycode) {
+            case ALLEGRO_KEY_ENTER:
+                mate = new Classmates("zhengyen",440,300,1);
+                cmSet.push_back(mate);
+                break;
+            case ALLEGRO_KEY_E:
+                mate = new Classmates("zhengyen",1000,300,0);
+                cmSet.push_back(mate);
+                break;
+        }
     }
     
     if(redraw) {
@@ -370,15 +445,15 @@ GameWindow::draw_fight_scene()
 
 void GameWindow::draw_playing_scene() {
     al_draw_bitmap(playing_background, 0, 0, 0);
-    towerBigBlue->draw();
-    towerBigRed->draw();
     
-    towerSmallBlueTop->draw();
-    towerSmallBlueBottom->draw();
+    for(auto tower:towerSet) tower->draw();
     
-    towerSmallRedTop->draw();
-    towerSmallRedBottom->draw();
-
+    al_draw_rectangle(100, 220, 900, 270, al_map_rgb(255, 255, 255), 1);
+    
+    for(auto i:cmSet) {
+        i->draw();
+    }
+    printf("Tower: %d\n",towerSmallRedTop->getHealthPoint());
     al_flip_display();
 }
 

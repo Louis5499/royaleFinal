@@ -33,4 +33,6 @@ extern int cmAttack[6];
 extern int cmHealth[6];
 extern int cmVelocity[6];
 
+extern int cmWidth[6];
+extern int cmHeight[6];
 #endif // GLOBAL_H_INCLUDED

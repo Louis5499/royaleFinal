@@ -1,6 +1,7 @@
 #ifndef TOWER_H_INCLUDED
 #define TOWER_H_INCLUDED
 
+class Classmates;
 #include <stdio.h>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
@@ -17,13 +18,14 @@
 class Tower : public Object
 {
 public:
-    Tower(int, int, int, int);
+    Tower(int, int, int, int, int);
     virtual ~Tower();
     
     // override virtual function "Object::Draw"
     void draw();
     void resetAttackCounter() { attack_counter = 0; }
     void ToggleClicked() { isClicked = !isClicked; }
+    int getHealthPoint() { return HealthPoint; }
     
     // update whole attack set
     // if any attack goes out of the range of tower, delete it
@@ -39,6 +41,12 @@ public:
     // show selected tower image on cursor position
     static void SelectedTower(int, int, int);
     
+    bool Subtract_HP(int);
+    
+    int whichSide = 0; // 0->blue , 1->red
+    
+    std::vector<Attack*> attack_set;
+    
 protected:
     // setting of attack
     int attack_frequency = 20;
@@ -49,12 +57,14 @@ protected:
     int img_posX;
     int img_posY;
     ALLEGRO_BITMAP *attack_img = al_load_bitmap("./meteor.png");
-    std::vector<Attack*> attack_set;
     
     // information of tower
     int type;
     bool isClicked = false;
+    Classmates *a = NULL;
     ALLEGRO_BITMAP *img;
+    
+    int HealthPoint = 100;
 };
 
 #endif // TOWER_H_INCLUDED

@@ -1,11 +1,13 @@
 #include "Tower.h"
 #include <iostream>
 
-Tower::Tower(int _img_posX,int _img_posY,int _offsetX,int _offsetY)
+Tower::Tower(int _img_posX,int _img_posY,int _offsetX,int _offsetY,int _whichSide)
 {
     this->circle = new Circle(_img_posX+_offsetX,_img_posY+_offsetY, 70);
     img_posX = _img_posX;
     img_posY = _img_posY;
+    
+    whichSide = _whichSide;
 }
 
 Tower::~Tower()
@@ -41,7 +43,7 @@ Tower::DetectAttack(Classmates *mate)
     bool willAttack = false;
     Attack *attack;
     
-    if(Circle::isOverlap(this->circle, mate->getCircle()))
+    if(Circle::isOverlap(this->circle, mate->getCircle()) && (mate->isPlayer) == this->whichSide)
     {
         /*
          * TODO:
@@ -58,10 +60,10 @@ Tower::DetectAttack(Classmates *mate)
                             this->attack_velocity,
                             this->attack_img
                             );
-        
         this->attack_set.push_back(attack);
-        willAttack = true;
         
+        willAttack = true;
+        mate->attacking = true;
     }
     
     return willAttack;
@@ -74,7 +76,7 @@ Tower::TriggerAttack(Classmates *mate)
     
     for(unsigned int i = 0; i < this->attack_set.size(); i++)
     {
-        if(Circle::isOverlap(attack_set[i]->getCircle(), mate->getCircle()))
+        if(Circle::isOverlap(attack_set[i]->getCircle(), mate->getCircle()) && (mate->isPlayer) == this->whichSide)
         {
             /*TODO:*/
             /*1. Reduce the monster HP by the harm point*/
@@ -105,3 +107,11 @@ Tower::UpdateAttack()
         }
     }
 }
+
+bool Tower::Subtract_HP(int harm_point)
+{
+    HealthPoint -= harm_point;
+    
+    return (HealthPoint <= 0);
+}
+
