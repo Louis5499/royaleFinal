@@ -93,7 +93,8 @@ private:
     ALLEGRO_BITMAP *money_bar = NULL;
     ALLEGRO_BITMAP *jewel_bar = NULL;
     ALLEGRO_BITMAP *cup_bar = NULL;
-    
+    ALLEGRO_BITMAP *treasure = NULL, *treasure1 = NULL;
+    ALLEGRO_BITMAP *cardBoard = NULL;
 
     ALLEGRO_DISPLAY* display = NULL;
     ALLEGRO_FONT *font = NULL;
@@ -149,6 +150,7 @@ private:
     button *playing = NULL;
     button *setting = NULL;
     button *exit_button = NULL;
+    button *chr[6];
     //int start_x = window_width/2, start_y = window_height*2/3, start_w = 100, start_h = 50;
     
     Slider *volumer = NULL;

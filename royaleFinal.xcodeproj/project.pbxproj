@@ -145,6 +145,9 @@
 		E8795A3120E07B2200BF599A /* momo_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2C20E07B2100BF599A /* momo_card.png */; };
 		E8795A3220E07B2200BF599A /* edward_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2D20E07B2100BF599A /* edward_card.png */; };
 		E8795A3420E07B4100BF599A /* cghg_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3320E07B4100BF599A /* cghg_card.png */; };
+		E8795A3820E07E5400BF599A /* treasure.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3720E07E5400BF599A /* treasure.png */; };
+		E8795A3A20E07FFA00BF599A /* treasure1.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3920E07FFA00BF599A /* treasure1.png */; };
+		E8795A3C20E082B100BF599A /* cardBoard.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3B20E082B100BF599A /* cardBoard.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -328,6 +331,9 @@
 		E8795A2C20E07B2100BF599A /* momo_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = momo_card.png; path = royaleFinal/momo_card.png; sourceTree = "<group>"; };
 		E8795A2D20E07B2100BF599A /* edward_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edward_card.png; path = royaleFinal/edward_card.png; sourceTree = "<group>"; };
 		E8795A3320E07B4100BF599A /* cghg_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cghg_card.png; path = royaleFinal/cghg_card.png; sourceTree = "<group>"; };
+		E8795A3720E07E5400BF599A /* treasure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treasure.png; path = royaleFinal/treasure.png; sourceTree = "<group>"; };
+		E8795A3920E07FFA00BF599A /* treasure1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treasure1.png; path = royaleFinal/treasure1.png; sourceTree = "<group>"; };
+		E8795A3B20E082B100BF599A /* cardBoard.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cardBoard.jpeg; path = royaleFinal/cardBoard.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +363,9 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
+				E8795A3B20E082B100BF599A /* cardBoard.jpeg */,
+				E8795A3920E07FFA00BF599A /* treasure1.png */,
+				E8795A3720E07E5400BF599A /* treasure.png */,
 				E8795A3320E07B4100BF599A /* cghg_card.png */,
 				E8795A2B20E07B2100BF599A /* acc_card.png */,
 				E8795A2D20E07B2100BF599A /* edward_card.png */,
@@ -599,7 +608,10 @@
 			files = (
 				9B6E505520D947C100279350 /* Assets.xcassets in Resources */,
 				E8795A2420E05CC400BF599A /* exit_button.png in Resources */,
+				E8795A3A20E07FFA00BF599A /* treasure1.png in Resources */,
 				E8795A2120E0525900BF599A /* setting_button.png in Resources */,
+				E8795A3C20E082B100BF599A /* cardBoard.jpeg in Resources */,
+				E8795A3820E07E5400BF599A /* treasure.png in Resources */,
 				E8795A2220E0525900BF599A /* hovered_setting_button.png in Resources */,
 				E8795A1D20E04D4800BF599A /* hovered_playing_button.png in Resources */,
 				E8795A1E20E04D4800BF599A /* playing_button.png in Resources */,

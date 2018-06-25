@@ -14,6 +14,7 @@
 void
 GameWindow::game_init()
 {
+    int i;
     char buffer[50];
     
     icon = al_load_bitmap("./icon.png");
@@ -26,6 +27,9 @@ GameWindow::game_init()
     money_bar = al_load_bitmap("./money_bar.png");
     jewel_bar = al_load_bitmap("./jewel_bar.png");
     cup_bar = al_load_bitmap("./cup_bar.png");
+    treasure = al_load_bitmap("./treasure.png");
+    treasure1 = al_load_bitmap("./treasure1.png");
+    cardBoard = al_load_bitmap("./cardBoard.jpeg");
     
     towerBigBlue = new TowerBigBlue(390, 348);
     towerBigRed = new TowerBigRed(1145, 348);
@@ -51,6 +55,7 @@ GameWindow::game_init()
     playing = new button("playing_button", window_width - 190, window_height - 120, 300, 160, square);
     setting = new button("setting_button", window_width - 80, 80, 80, 80, square);
     exit_button = new button("exit_button", window_width - 105, 82, 18, 18, roundType);
+    for(i=0; i<6; i++) chr[i] = new button(cmName[i], 150, 160, 175, 200, square);
     
     volumer = new Slider(290, 290);
     
@@ -454,6 +459,14 @@ int GameWindow::playing_process_event() {
                 break;
         }
     }
+    else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+        if(event.mouse.button == 1) {
+            for(i=0; i<4; i++) if(chr[i]->isHovered(mouse_x, mouse_y)) {
+                mate = new Classmates(cmName[i],440,300,1);
+                cmSet.push_back(mate);
+            }
+        }
+    }
     
     if(redraw) {
         // update each object in game
@@ -518,7 +531,10 @@ GameWindow::draw_fight_scene(int msg)
     playing->draw();
     setting->draw();
     
-    for(i=0; i<2; i++) if(treasure[0] == false) al_draw_bitmap(treasure, 50+i*, 230, 0);
+    for(i=0; i<3; i++) {
+        if(treasureLock[i] == false) al_draw_bitmap(treasure, 50+i*250, window_height-220, 0);
+        else al_draw_bitmap(treasure1, 50+i*180, 230, 0);
+    }
     
     if(msg == GAME_SETTING) {
         al_draw_filled_rounded_rectangle(100, 80, window_width - 100, window_height - 80, 20, 20, al_map_rgb(150, 150, 150));
@@ -539,11 +555,14 @@ GameWindow::draw_fight_scene(int msg)
 
 
 void GameWindow::draw_playing_scene() {
+    int i;
     al_draw_bitmap(playing_background, 0, 0, 0);
     
     for(auto tower:towerSet) tower->draw();
     
-    al_draw_rectangle(100, 220, 900, 270, al_map_rgb(255, 255, 255), 1);
+    //al_draw_rectangle(100, 220, 900, 270, al_map_rgb(255, 255, 255), 1);
+    al_draw_bitmap(cardBoard, 0, 0, 0);
+    for(i=0; i<4; i++) chr[i]->draw();
     
     for(auto i:cmSet) {
         i->draw();

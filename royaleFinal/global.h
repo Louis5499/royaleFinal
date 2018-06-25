@@ -23,6 +23,8 @@ enum TowerType{SMALLBLUE = 0, SMALLRED, BIGBLUE, BIGRED}; // Tower
 enum {leftup = 0, centre};
 enum {square = 0, roundType};
 
+extern char cmName[6][50];
+
 extern int dir_mov[4][2];
 extern int TowerWidth[];
 extern int TowerHeight[];
