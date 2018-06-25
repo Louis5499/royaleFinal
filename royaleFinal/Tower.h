@@ -44,7 +44,7 @@ public:
     bool Subtract_HP(int);
     
     int whichSide = 0; // 0->blue , 1->red
-    
+    int type;
     std::vector<Attack*> attack_set;
     
 protected:
@@ -59,7 +59,7 @@ protected:
     ALLEGRO_BITMAP *attack_img = al_load_bitmap("./meteor.png");
     
     // information of tower
-    int type;
+    
     bool isClicked = false;
     Classmates *a = NULL;
     ALLEGRO_BITMAP *img;
@@ -67,6 +67,7 @@ protected:
     int HealthPoint = 100;
     
     int num=0;
+    
 };
 
 #endif // TOWER_H_INCLUDED

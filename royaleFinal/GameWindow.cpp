@@ -215,6 +215,8 @@ GameWindow::game_update()
     for(i=0; i < towerSet.size(); i++) {
         Tower *tower = towerSet[i];
         if(tower->getHealthPoint() <= 0) {
+            if(tower->type == BIGRED || tower->type == BIGBLUE)
+                return GAME_FIGHT;
             towerSet.erase(towerSet.begin() + i);
             i--;
             delete tower;
@@ -487,7 +489,7 @@ int GameWindow::playing_process_event() {
         redraw = false;
     }
     
-    return GAME_PLAYING;
+    return instruction;
 }
 
 
@@ -568,7 +570,9 @@ void GameWindow::draw_playing_scene() {
     int i;
     al_draw_bitmap(playing_background, 0, 0, 0);
     
-    for(auto tower:towerSet) tower->draw();
+    for(auto tower:towerSet) {
+        tower->draw();
+    }
     
     //al_draw_rectangle(100, 220, 900, 270, al_map_rgb(255, 255, 255), 1);
     al_draw_bitmap(cardBoard, 0, 0, 0);
