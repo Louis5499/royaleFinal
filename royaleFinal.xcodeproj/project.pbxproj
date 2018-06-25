@@ -139,12 +139,15 @@
 		E8795A2220E0525900BF599A /* hovered_setting_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2020E0525800BF599A /* hovered_setting_button.png */; };
 		E8795A2420E05CC400BF599A /* exit_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2320E05CC400BF599A /* exit_button.png */; };
 		E8795A2720E0607C00BF599A /* Slider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8795A2520E0607C00BF599A /* Slider.cpp */; };
-		E8795A2E20E07B2200BF599A /* zhengyen_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2920E07B2000BF599A /* zhengyen_card.png */; };
-		E8795A2F20E07B2200BF599A /* jacky_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2A20E07B2000BF599A /* jacky_card.png */; };
-		E8795A3020E07B2200BF599A /* acc_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2B20E07B2100BF599A /* acc_card.png */; };
-		E8795A3120E07B2200BF599A /* momo_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2C20E07B2100BF599A /* momo_card.png */; };
-		E8795A3220E07B2200BF599A /* edward_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A2D20E07B2100BF599A /* edward_card.png */; };
-		E8795A3420E07B4100BF599A /* cghg_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3320E07B4100BF599A /* cghg_card.png */; };
+		E8795A3820E07E5400BF599A /* treasure.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3720E07E5400BF599A /* treasure.png */; };
+		E8795A3A20E07FFA00BF599A /* treasure1.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3920E07FFA00BF599A /* treasure1.png */; };
+		E8795A3C20E082B100BF599A /* cardBoard.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3B20E082B100BF599A /* cardBoard.jpeg */; };
+		E8795A4320E08C5900BF599A /* momo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3D20E08C5700BF599A /* momo.png */; };
+		E8795A4420E08C5900BF599A /* edward.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3E20E08C5800BF599A /* edward.png */; };
+		E8795A4520E08C5900BF599A /* zhengyen.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A3F20E08C5800BF599A /* zhengyen.png */; };
+		E8795A4620E08C5900BF599A /* cghg.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A4020E08C5800BF599A /* cghg.png */; };
+		E8795A4720E08C5900BF599A /* acc.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A4120E08C5800BF599A /* acc.png */; };
+		E8795A4820E08C5900BF599A /* jacky.png in Resources */ = {isa = PBXBuildFile; fileRef = E8795A4220E08C5800BF599A /* jacky.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -322,12 +325,15 @@
 		E8795A2320E05CC400BF599A /* exit_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exit_button.png; path = royaleFinal/exit_button.png; sourceTree = "<group>"; };
 		E8795A2520E0607C00BF599A /* Slider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Slider.cpp; sourceTree = "<group>"; };
 		E8795A2820E0608E00BF599A /* Slider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Slider.h; sourceTree = "<group>"; };
-		E8795A2920E07B2000BF599A /* zhengyen_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhengyen_card.png; path = royaleFinal/zhengyen_card.png; sourceTree = "<group>"; };
-		E8795A2A20E07B2000BF599A /* jacky_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jacky_card.png; path = royaleFinal/jacky_card.png; sourceTree = "<group>"; };
-		E8795A2B20E07B2100BF599A /* acc_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acc_card.png; path = royaleFinal/acc_card.png; sourceTree = "<group>"; };
-		E8795A2C20E07B2100BF599A /* momo_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = momo_card.png; path = royaleFinal/momo_card.png; sourceTree = "<group>"; };
-		E8795A2D20E07B2100BF599A /* edward_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edward_card.png; path = royaleFinal/edward_card.png; sourceTree = "<group>"; };
-		E8795A3320E07B4100BF599A /* cghg_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cghg_card.png; path = royaleFinal/cghg_card.png; sourceTree = "<group>"; };
+		E8795A3720E07E5400BF599A /* treasure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treasure.png; path = royaleFinal/treasure.png; sourceTree = "<group>"; };
+		E8795A3920E07FFA00BF599A /* treasure1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treasure1.png; path = royaleFinal/treasure1.png; sourceTree = "<group>"; };
+		E8795A3B20E082B100BF599A /* cardBoard.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cardBoard.jpeg; path = royaleFinal/cardBoard.jpeg; sourceTree = "<group>"; };
+		E8795A3D20E08C5700BF599A /* momo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = momo.png; path = royaleFinal/momo.png; sourceTree = "<group>"; };
+		E8795A3E20E08C5800BF599A /* edward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edward.png; path = royaleFinal/edward.png; sourceTree = "<group>"; };
+		E8795A3F20E08C5800BF599A /* zhengyen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhengyen.png; path = royaleFinal/zhengyen.png; sourceTree = "<group>"; };
+		E8795A4020E08C5800BF599A /* cghg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cghg.png; path = royaleFinal/cghg.png; sourceTree = "<group>"; };
+		E8795A4120E08C5800BF599A /* acc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acc.png; path = royaleFinal/acc.png; sourceTree = "<group>"; };
+		E8795A4220E08C5800BF599A /* jacky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jacky.png; path = royaleFinal/jacky.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,12 +363,15 @@
 		9B6E504520D947BF00279350 = {
 			isa = PBXGroup;
 			children = (
-				E8795A3320E07B4100BF599A /* cghg_card.png */,
-				E8795A2B20E07B2100BF599A /* acc_card.png */,
-				E8795A2D20E07B2100BF599A /* edward_card.png */,
-				E8795A2A20E07B2000BF599A /* jacky_card.png */,
-				E8795A2C20E07B2100BF599A /* momo_card.png */,
-				E8795A2920E07B2000BF599A /* zhengyen_card.png */,
+				E8795A4120E08C5800BF599A /* acc.png */,
+				E8795A4020E08C5800BF599A /* cghg.png */,
+				E8795A3E20E08C5800BF599A /* edward.png */,
+				E8795A4220E08C5800BF599A /* jacky.png */,
+				E8795A3D20E08C5700BF599A /* momo.png */,
+				E8795A3F20E08C5800BF599A /* zhengyen.png */,
+				E8795A3B20E082B100BF599A /* cardBoard.jpeg */,
+				E8795A3920E07FFA00BF599A /* treasure1.png */,
+				E8795A3720E07E5400BF599A /* treasure.png */,
 				E8795A2320E05CC400BF599A /* exit_button.png */,
 				E8795A2020E0525800BF599A /* hovered_setting_button.png */,
 				E8795A1F20E0525800BF599A /* setting_button.png */,
@@ -598,18 +607,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6E505520D947C100279350 /* Assets.xcassets in Resources */,
+				E8795A4320E08C5900BF599A /* momo.png in Resources */,
+				E8795A4420E08C5900BF599A /* edward.png in Resources */,
+				E8795A4520E08C5900BF599A /* zhengyen.png in Resources */,
+				E8795A4620E08C5900BF599A /* cghg.png in Resources */,
+				E8795A4720E08C5900BF599A /* acc.png in Resources */,
+				E8795A4820E08C5900BF599A /* jacky.png in Resources */,
 				E8795A2420E05CC400BF599A /* exit_button.png in Resources */,
+				E8795A3A20E07FFA00BF599A /* treasure1.png in Resources */,
 				E8795A2120E0525900BF599A /* setting_button.png in Resources */,
+				E8795A3C20E082B100BF599A /* cardBoard.jpeg in Resources */,
+				E8795A3820E07E5400BF599A /* treasure.png in Resources */,
 				E8795A2220E0525900BF599A /* hovered_setting_button.png in Resources */,
 				E8795A1D20E04D4800BF599A /* hovered_playing_button.png in Resources */,
 				E8795A1E20E04D4800BF599A /* playing_button.png in Resources */,
-				E8795A3420E07B4100BF599A /* cghg_card.png in Resources */,
 				E8795A1A20E047C000BF599A /* cup_bar.png in Resources */,
-				E8795A2E20E07B2200BF599A /* zhengyen_card.png in Resources */,
-				E8795A2F20E07B2200BF599A /* jacky_card.png in Resources */,
-				E8795A3020E07B2200BF599A /* acc_card.png in Resources */,
-				E8795A3120E07B2200BF599A /* momo_card.png in Resources */,
-				E8795A3220E07B2200BF599A /* edward_card.png in Resources */,
 				E8795A1820E0401600BF599A /* Monsterz.ttf in Resources */,
 				E8795A1320E033A600BF599A /* floor.jpg in Resources */,
 				E8795A1620E0385900BF599A /* jewel_bar.png in Resources */,

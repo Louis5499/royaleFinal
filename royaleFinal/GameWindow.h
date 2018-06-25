@@ -93,7 +93,8 @@ private:
     ALLEGRO_BITMAP *money_bar = NULL;
     ALLEGRO_BITMAP *jewel_bar = NULL;
     ALLEGRO_BITMAP *cup_bar = NULL;
-    
+    ALLEGRO_BITMAP *treasure = NULL, *treasure1 = NULL;
+    ALLEGRO_BITMAP *cardBoard = NULL;
 
     ALLEGRO_DISPLAY* display = NULL;
     ALLEGRO_FONT *font = NULL;
@@ -137,9 +138,11 @@ private:
     bool mute = false;
     bool pause = false;
     
+    int mon = 500;
     int money = 100;
     int jewel = 20;
     int cup = 0;
+    bool treasureLock[3] = {false, false, false};
     
     float volume = 1.0;
     
@@ -148,6 +151,7 @@ private:
     button *playing = NULL;
     button *setting = NULL;
     button *exit_button = NULL;
+    button *chr[6];
     //int start_x = window_width/2, start_y = window_height*2/3, start_w = 100, start_h = 50;
     
     Slider *volumer = NULL;

@@ -4,7 +4,7 @@ button::button(const char *name, int x, int y, int w, int h, int f): x(x), y(y),
 {
     int i;
     char buffer[50];
-    for(i=0; i<50; i++) buffer[i] = name[i];
+    for(i=0; i<50; i++) { buffer[i] = name[i]; n[i] = name[i];}
     
     sprintf(buffer, "./%s.png", name);
     img = al_load_bitmap(buffer);
