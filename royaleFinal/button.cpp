@@ -17,7 +17,7 @@ bool
 button::isHovered(int mouseX, int mouseY)
 {
     if((type == square && mouseX >= x - width/2 && mouseX <= x + width/2 && mouseY >= y - height/2 && mouseY <= y + height/2) || (type == roundType && ((x - mouseX)*(x - mouseX) + (y - mouseY)*(y - mouseY) <= width*width))) {
-            hover();
+            
         return true;
     }
     return false;

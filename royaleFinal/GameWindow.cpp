@@ -461,11 +461,17 @@ int GameWindow::playing_process_event() {
     }
     else if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
         if(event.mouse.button == 1) {
-            for(i=0; i<4; i++) if(chr[i]->isHovered(mouse_x, mouse_y)) {
-                mate = new Classmates(cmName[i],440,300,1);
-                cmSet.push_back(mate);
+            for(i=0; i<4; i++) {
+                if(chr[i]->isHovered(mouse_x, mouse_y)) {
+                    mate = new Classmates(cmName[i],440,300,1);
+                    cmSet.push_back(mate);
+                }
             }
         }
+    }
+    else if(event.type == ALLEGRO_EVENT_MOUSE_AXES){
+        mouse_x = event.mouse.x;
+        mouse_y = event.mouse.y;
     }
     
     if(redraw) {
@@ -567,7 +573,7 @@ void GameWindow::draw_playing_scene() {
     for(auto i:cmSet) {
         i->draw();
     }
-    printf("Tower: %d\n",towerSmallRedTop->getHealthPoint());
+//    printf("Tower: %d\n",towerSmallRedTop->getHealthPoint());
     al_flip_display();
 }
 
