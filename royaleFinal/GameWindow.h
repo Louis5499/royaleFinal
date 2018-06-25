@@ -14,6 +14,7 @@
 #include "TowerBigBlue.h"
 #include "TowerSmallRed.h"
 #include "TowerSmallBlue.h"
+#include "Slider.h"
 
 #define GAME_INIT -1
 #define GAME_START 0
@@ -58,7 +59,7 @@ public:
     // draw running game map
     void draw_start_scene();
     void draw_playing_scene();
-    void draw_fight_scene();
+    void draw_fight_scene(int);
     
     // draw pause scene
     void draw_pause_scene();
@@ -66,6 +67,7 @@ public:
     // process of updated event
     int start_process_event();
     int fight_process_event();
+    int setting_process_event();
     int playing_process_event();
     
     // detect if mouse hovers over a rectangle
@@ -81,7 +83,6 @@ private:
     ALLEGRO_BITMAP *icon;
     ALLEGRO_BITMAP *background = NULL;
     ALLEGRO_BITMAP *loading = NULL;
-    ALLEGRO_BITMAP *start_button = NULL;
     ALLEGRO_BITMAP *start_scene = NULL;
     ALLEGRO_BITMAP *playing_background = NULL;
     ALLEGRO_BITMAP *tower_small_blue = NULL;
@@ -90,7 +91,8 @@ private:
     ALLEGRO_BITMAP *tower_big_red = NULL;
     ALLEGRO_BITMAP *floor = NULL;
     ALLEGRO_BITMAP *money_bar = NULL;
-    
+    ALLEGRO_BITMAP *jewel_bar = NULL;
+    ALLEGRO_BITMAP *cup_bar = NULL;
     
 
     ALLEGRO_DISPLAY* display = NULL;
@@ -135,9 +137,20 @@ private:
     bool mute = false;
     bool pause = false;
     
+    int money = 100;
+    int jewel = 20;
+    int cup = 0;
+    
+    float volume = 1.0;
+    
     int t = 0; //to control the loading bar;
     button *start = NULL;
+    button *playing = NULL;
+    button *setting = NULL;
+    button *exit_button = NULL;
     //int start_x = window_width/2, start_y = window_height*2/3, start_w = 100, start_h = 50;
+    
+    Slider *volumer = NULL;
 };
 
 
