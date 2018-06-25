@@ -34,10 +34,12 @@ public:
     // process if some of attack in set touches monster
     bool TriggerAttack(Classmates*);
     bool TriggerAttackTower(Tower *tower);
+    bool isAttacked() {return isA;};
     
     bool Subtract_HP(int);
     
     int attack_harm_point = 5;
+    int emp = 60;
     
     bool isPlayer = true; // 是電腦還是我們
     bool attacking = false;
@@ -51,6 +53,7 @@ protected:
     double pos[2];
     double calcPos[2]; //leg coordinate
     int whichImg;
+    int step = 0;
     
     int imgWidth = 80;
     int imgHeight = 106;
@@ -62,6 +65,7 @@ protected:
     // setting of attack
     int attack_frequency = 20;
     int attack_counter = 0;
+    bool isA = false;
     
     int attack_velocity = 10;
     ALLEGRO_BITMAP *attack_img = al_load_bitmap("./meteor.png");

@@ -224,14 +224,18 @@ GameWindow::game_update()
     
     for(i=0; i < cmSet.size(); i++) {
         Classmates *m = cmSet[i];
+        //printf("%d ", )
         if(m->attack_set.empty()) printf("Empty\n");
-        if(mate->getHealthPoint() <= 0) {
+        if(m->getHealthPoint() <= 0) {
             cmSet.erase(cmSet.begin() + i);
             i--;
             delete m;
         }
         else {
-            m->move();
+            if(m->attack_set.size() == 0 && m->emp < 60) m->emp++;
+            else if(m->attack_set.size() != 0) m->emp = 0;
+            printf("%d\n", m->emp);
+            if(m->emp >= 60) m->move();
             m->UpdateAttack();
         }
     }

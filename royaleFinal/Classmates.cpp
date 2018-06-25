@@ -62,8 +62,10 @@ void Classmates::move() {
 
 void Classmates::draw() {
     int num = (whichImg == 3) ? 1 : whichImg;
+    if(step < 10) step++;
+    else step = 0;
+    if(step == 0) whichImg = (whichImg+1)%4;
     al_draw_bitmap(img[dir][num], pos[0], pos[1], 0);
-    whichImg = (whichImg+1)%4;
     
     attack_counter = (attack_counter + 1) % attack_frequency;
     
