@@ -65,6 +65,8 @@ protected:
     ALLEGRO_BITMAP *img;
     
     int HealthPoint = 100;
+    
+    int num=0;
 };
 
 #endif // TOWER_H_INCLUDED

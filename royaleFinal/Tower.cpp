@@ -43,6 +43,8 @@ Tower::DetectAttack(Classmates *mate)
     bool willAttack = false;
     Attack *attack;
     
+    printf("x:%d y:%d  X:%d y:%d\n",circle->x,circle->y,mate->getCircle()->x,mate->getCircle()->y);
+    
     if(Circle::isOverlap(this->circle, mate->getCircle()) && (mate->isPlayer) == this->whichSide)
     {
         /*
@@ -61,6 +63,7 @@ Tower::DetectAttack(Classmates *mate)
                             this->attack_img
                             );
         this->attack_set.push_back(attack);
+        
         
         willAttack = true;
         mate->attacking = true;

@@ -137,8 +137,8 @@ Classmates::DetectAttackTower(Tower *tower)
 
         this->attack_set.push_back(attack);
         willAttack = true;
-        this->attacking = true;
     }
+    
     return willAttack;
 }
 

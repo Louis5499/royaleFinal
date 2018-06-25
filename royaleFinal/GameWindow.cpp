@@ -54,7 +54,7 @@ GameWindow::game_init()
     
     volumer = new Slider(290, 290);
     
-    sample = al_load_sample("menu.wav");
+    sample = al_load_sample("menu.ogg");
     backgroundSound = al_create_sample_instance(sample);
     al_set_sample_instance_playmode(backgroundSound, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer(backgroundSound, al_get_default_mixer());
